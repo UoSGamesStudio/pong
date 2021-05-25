@@ -1,9 +1,11 @@
-extends KinematicBody2D
-class_name Paddle
+extends Node
+class_name InputNode
 
-export var speed: float = 5
 
-onready var input : PaddleInput = $Input
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

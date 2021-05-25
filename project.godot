@@ -14,6 +14,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scenes/ball.gd"
 }, {
+"base": "Reference",
+"class": "BallReaction",
+"language": "GDScript",
+"path": "res://Scripts/Physics/ball_reaction.gd"
+}, {
+"base": "StaticBody2D",
+"class": "BallReactor",
+"language": "GDScript",
+"path": "res://Scripts/ball_reactor.gd"
+}, {
+"base": "Node",
+"class": "InputNode",
+"language": "GDScript",
+"path": "res://Scripts/Input/input_node.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Paddle",
 "language": "GDScript",
@@ -26,6 +41,9 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Ball": "",
+"BallReaction": "",
+"BallReactor": "",
+"InputNode": "",
 "Paddle": "",
 "Wall": ""
 }
@@ -35,6 +53,15 @@ _global_script_class_icons={
 config/name="Pong"
 run/main_scene="res://Scenes/main.tscn"
 config/icon="res://icon.png"
+
+[editor]
+
+script_templates_search_path="res://ScriptTemplates"
+
+[layer_names]
+
+2d_physics/layer_1="Default"
+2d_physics/layer_3="Ball"
 
 [rendering]
 
