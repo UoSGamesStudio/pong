@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Autoload/Debug/Log.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Autoload/Debug/Ball/db_ball.gd" type="Script" id=2]
+
+[node name="DbBall" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="C" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+margin_bottom = 398.0
+
+[node name="Title" type="Label" parent="C"]
+margin_right = 1024.0
+margin_bottom = 14.0
+text = "Ball Information"
+
+[node name="Name" parent="C" instance=ExtResource( 1 )]
+margin_top = 18.0
+margin_bottom = 32.0
+
+[node name="Valocity" parent="C" instance=ExtResource( 1 )]

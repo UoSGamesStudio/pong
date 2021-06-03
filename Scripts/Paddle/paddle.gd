@@ -5,7 +5,8 @@ export(float, 0.0, 10.0) var speed: float = 5
 export(float, 0.0, 10.0) var acceleration: float = 2
 export(float, 0.1, 5.0) var deceleration_multiplier := 2.0
 
-onready var input : InputNode = $Input
+onready var ball_reactor: PaddleBallReactor = $BallCollider
+onready var input: InputNode = $Input
 
 var velocity := Vector2()
 
@@ -33,3 +34,5 @@ func _process(delta: float) -> void:
 	var collision := move_and_collide(velocity)
 	if collision:
 		velocity = Vector2()
+		
+	ball_reactor.velocity = velocity

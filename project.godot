@@ -24,6 +24,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/ball_reactor.gd"
 }, {
+"base": "Control",
+"class": "DbBall",
+"language": "GDScript",
+"path": "res://Autoload/Debug/Ball/db_ball.gd"
+}, {
+"base": "Label",
+"class": "DebugLog",
+"language": "GDScript",
+"path": "res://Autoload/Debug/log.gd"
+}, {
 "base": "Reference",
 "class": "IButton",
 "language": "GDScript",
@@ -34,10 +44,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Input/input_node.gd"
 }, {
+"base": "Node",
+"class": "Main",
+"language": "GDScript",
+"path": "res://Scripts/main.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Paddle",
 "language": "GDScript",
-"path": "res://Scripts/paddle.gd"
+"path": "res://Scripts/Paddle/paddle.gd"
+}, {
+"base": "BallReactor",
+"class": "PaddleBallReactor",
+"language": "GDScript",
+"path": "res://Scripts/Paddle/paddle_ball_reactor.gd"
 }, {
 "base": "InputNode",
 "class": "TwoPlayerInput",
@@ -53,9 +73,13 @@ _global_script_class_icons={
 "Ball": "",
 "BallReaction": "",
 "BallReactor": "",
+"DbBall": "",
+"DebugLog": "",
 "IButton": "",
 "InputNode": "",
+"Main": "",
 "Paddle": "",
+"PaddleBallReactor": "",
 "TwoPlayerInput": "",
 "Wall": ""
 }
@@ -65,6 +89,10 @@ _global_script_class_icons={
 config/name="Pong"
 run/main_scene="res://Scenes/main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Debug="*res://Autoload/Debug/Debug.tscn"
 
 [editor]
 
