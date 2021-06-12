@@ -10,6 +10,12 @@ onready var input: InputNode = $Input
 
 var velocity := Vector2()
 
+func set_input(input: String) -> void:
+	self.input.keyboard_input_index = input
+
+func _ready() -> void:
+	pass
+
 func _process(delta: float) -> void:
 	var c := input.get_control()
 	

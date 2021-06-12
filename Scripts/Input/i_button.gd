@@ -4,6 +4,9 @@ enum { RELEASED, DOWN, HELD, UP }
 
 var _state : int = RELEASED
 
+func is_down() -> bool:
+	return _state == DOWN
+
 func is_held() -> bool:
 	return _state == DOWN || _state == HELD
 

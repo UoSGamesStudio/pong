@@ -59,6 +59,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Paddle/paddle_ball_reactor.gd"
 }, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://Scripts/Paddle/state.gd"
+}, {
 "base": "InputNode",
 "class": "TwoPlayerInput",
 "language": "GDScript",
@@ -80,6 +85,7 @@ _global_script_class_icons={
 "Main": "",
 "Paddle": "",
 "PaddleBallReactor": "",
+"State": "",
 "TwoPlayerInput": "",
 "Wall": ""
 }
