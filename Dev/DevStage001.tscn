@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Stage/Goal.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Stage/Wall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Stage/stage.gd" type="Script" id=5]
+
+[node name="DevStage001" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 512, 300 )
+current = true
+
+[node name="WallSouth" parent="." instance=ExtResource( 3 )]
+position = Vector2( 500, 580 )
+
+[node name="WallNorth" parent="." instance=ExtResource( 3 )]
+position = Vector2( 500, 0 )
+
+[node name="GoalArea" parent="." instance=ExtResource( 2 )]
+
+[node name="BallSpawnPosition" type="Node2D" parent="."]
+position = Vector2( 550.828, 271.445 )
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2( 439.71, 250.809 )
+
+[node name="Node2D3" type="Node2D" parent="."]
+position = Vector2( 463.521, 246.047 )

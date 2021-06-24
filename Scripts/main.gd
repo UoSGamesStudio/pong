@@ -1,19 +1,19 @@
 extends Node
 class_name Main
+"""
+class Main
+Manages the lifetime of the game.
+Responsible for loading and unloading stages, the players and the ball.
+"""
 
-
-onready var _ball: Ball = $Ball
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	SignalTower.emit_signal("stage_loaded")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _commence_game() -> void:
+	# First, we load the stage
+	
+	# Next, we load the players
+	
+	# Finally we load the ball
+	pass

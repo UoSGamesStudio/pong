@@ -1,8 +1,12 @@
-extends StaticBody2D
-class_name Wall
+extends Node
+class_name GoalScorer
 
-export var bounciness : float = 1.0
+export var points := 1
 
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
 
 
 # Called when the node enters the scene tree for the first time.
