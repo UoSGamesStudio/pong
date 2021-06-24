@@ -9,7 +9,11 @@ onready var _input: InputNode = $Input
 var _fields := PaddleFields.new()
 var _states := []
 
+func hold_ball(ball: Ball) -> void:
+	_fields.held_ball = ball
+
 func _ready() -> void:
+	_fields.ball_hold_position = $BallHoldPosition
 	_states =  get_children() if _states_parent.is_empty() else get_node(_states_parent).get_children()
 	for state in _states:
 		state.set_fields(_fields)

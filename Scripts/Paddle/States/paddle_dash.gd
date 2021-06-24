@@ -18,4 +18,5 @@ func execute(delta: float) -> void:
 
 func _on_Timer_timeout():
 	_can_dash = true
+	escape_stack_execution = false
 	print("timeout")

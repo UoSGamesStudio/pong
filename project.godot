@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Ball",
 "language": "GDScript",
-"path": "res://Scripts/ball.gd"
+"path": "res://Scripts/Ball/ball.gd"
 }, {
 "base": "Reference",
 "class": "BallReaction",
@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "StaticBody2D",
 "class": "BallReactor",
 "language": "GDScript",
-"path": "res://Scripts/ball_reactor.gd"
+"path": "res://Scripts/Ball/ball_reactor.gd"
 }, {
 "base": "Control",
 "class": "DbBall",

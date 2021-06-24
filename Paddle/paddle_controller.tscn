@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Paddle/paddle.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Paddle/paddle_ball_reactor.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Scripts/Input/two_player_input.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/Paddle/States/paddle_dash.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/Paddle/States/paddle_move.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Paddle/States/paddle_physics.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/Paddle/States/paddle_throw.gd" type="Script" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 50.0
@@ -16,6 +18,9 @@ extents = Vector2( 15, 75 )
 [node name="PaddleController" type="KinematicBody2D"]
 script = ExtResource( 1 )
 _states_parent = NodePath("States")
+
+[node name="BallHoldPosition" type="Node2D" parent="."]
+position = Vector2( 30, 0 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.4, 2.3 )
@@ -36,6 +41,12 @@ shape = SubResource( 2 )
 script = ExtResource( 4 )
 
 [node name="States" type="Node" parent="."]
+
+[node name="Physics" type="Node" parent="States"]
+script = ExtResource( 7 )
+
+[node name="Throw" type="Node" parent="States"]
+script = ExtResource( 8 )
 
 [node name="Dash" type="Node" parent="States"]
 script = ExtResource( 5 )

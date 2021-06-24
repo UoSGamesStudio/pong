@@ -13,16 +13,7 @@ Stage scenes should only contain:
 
 signal stage_loaded
 
-export(NodePath) var _ball_spawn_path : NodePath
-
-var _ball_spawn: Node2D
-
-func get_ball_spawn_positon() -> Node2D:
-	return _ball_spawn
-
 func _ready():
-	_ball_spawn = get_node(_ball_spawn_path)
-	
 	for child in get_children():
 		if child is GoalArea:
 			child.connect("goal_scored", self, "_on_goal_scored")

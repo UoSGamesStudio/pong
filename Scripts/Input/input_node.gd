@@ -7,8 +7,6 @@ Should not be used itself
 
 export(String, "1", "2") var keyboard_input_index := "1"
 
-const IButton := preload("res://Scripts/Input/i_button.gd")
-
 onready var _dash := IButton.new()
 onready var _attack := IButton.new()
 
