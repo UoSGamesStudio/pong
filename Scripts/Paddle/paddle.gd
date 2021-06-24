@@ -2,6 +2,7 @@ extends KinematicBody2D
 class_name Paddle
 
 export(NodePath) var _states_parent: NodePath
+export var _default_facing_direction := Vector2.RIGHT
 
 onready var _ball_reactor: PaddleBallReactor = $BallCollider
 onready var _input: InputNode = $Input
@@ -14,6 +15,8 @@ func hold_ball(ball: Ball) -> void:
 
 func _ready() -> void:
 	_fields.ball_hold_position = $BallHoldPosition
+	_default_facing_direction = _default_facing_direction.normalized()
+	
 	_states =  get_children() if _states_parent.is_empty() else get_node(_states_parent).get_children()
 	for state in _states:
 		state.set_fields(_fields)

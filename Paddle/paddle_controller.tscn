@@ -19,23 +19,29 @@ extents = Vector2( 15, 75 )
 script = ExtResource( 1 )
 _states_parent = NodePath("States")
 
+[node name="ControllerCol" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+__meta__ = {
+"_editor_description_": "The collider for other paddles and the walls"
+}
+
+[node name="BallCollider" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": "The collider for the ball"
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallCollider"]
+shape = SubResource( 2 )
+
 [node name="BallHoldPosition" type="Node2D" parent="."]
 position = Vector2( 30, 0 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.4, 2.3 )
 texture = ExtResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
-
-[node name="BallCollider" type="StaticBody2D" parent="."]
-collision_layer = 4
-collision_mask = 4
-script = ExtResource( 2 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BallCollider"]
-shape = SubResource( 2 )
 
 [node name="Input" type="Node" parent="."]
 script = ExtResource( 4 )
@@ -57,5 +63,7 @@ one_shot = true
 
 [node name="Move" type="Node" parent="States"]
 script = ExtResource( 6 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
 
 [connection signal="timeout" from="States/Dash/Timer" to="States/Dash" method="_on_Timer_timeout"]
