@@ -9,10 +9,9 @@
 script = ExtResource( 2 )
 
 [node name="PaddleController" parent="." instance=ExtResource( 5 )]
-position = Vector2( 100, 204.863 )
-acceleration = 7.185
-deceleration_multiplier = 2.408
+position = Vector2( 923.709, 300.339 )
 
 [node name="Ball" parent="." instance=ExtResource( 1 )]
+velocity = Vector2( 0, 0 )
 
 [node name="DevStage001" parent="." instance=ExtResource( 3 )]

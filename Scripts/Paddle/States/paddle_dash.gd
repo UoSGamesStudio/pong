@@ -1,4 +1,4 @@
-extends State
+extends PaddleState
 
 export(float, 0.0, 10.0) var timeout := 3.0
 
@@ -13,6 +13,7 @@ func execute(delta: float) -> void:
 	if _input.get_dash().is_down() && _can_dash:
 		_can_dash = false
 		_timer.start(timeout)
+		escape_stack_execution = true
 
 
 func _on_Timer_timeout():

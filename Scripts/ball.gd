@@ -1,7 +1,7 @@
 extends KinematicBody2D
 class_name Ball
 
-export var velocity := Vector2(2.0, 0.0)
+export var velocity := Vector2(0.0, 0.0)
 onready var goal_scorer: GoalScorer = $GoalScorer
 
 func get_goal_scorer() -> GoalScorer:

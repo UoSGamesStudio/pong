@@ -30,4 +30,4 @@ func _ready():
 	emit_signal("stage_loaded")
 
 func _on_goal_scored(goal_scorer: GoalScorer, goal_area: GoalArea) -> void:
-	print("GOAAAAAAAAAAL")
+	print(goal_scorer.points)

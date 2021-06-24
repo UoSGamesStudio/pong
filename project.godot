@@ -79,15 +79,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Paddle/paddle_ball_reactor.gd"
 }, {
+"base": "Reference",
+"class": "PaddleFields",
+"language": "GDScript",
+"path": "res://Scripts/Paddle/paddle_fields.gd"
+}, {
+"base": "Node",
+"class": "PaddleState",
+"language": "GDScript",
+"path": "res://Scripts/Paddle/States/paddle_state.gd"
+}, {
 "base": "Node2D",
 "class": "Stage",
 "language": "GDScript",
 "path": "res://Scripts/Stage/stage.gd"
-}, {
-"base": "Node",
-"class": "State",
-"language": "GDScript",
-"path": "res://Scripts/Paddle/state.gd"
 }, {
 "base": "InputNode",
 "class": "TwoPlayerInput",
@@ -109,8 +114,9 @@ _global_script_class_icons={
 "Main": "",
 "Paddle": "",
 "PaddleBallReactor": "",
+"PaddleFields": "",
+"PaddleState": "",
 "Stage": "",
-"State": "",
 "TwoPlayerInput": ""
 }
 

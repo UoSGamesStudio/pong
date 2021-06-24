@@ -10,7 +10,7 @@ func _ready():
 	SignalTower.emit_signal("stage_loaded")
 
 
-func _commence_game() -> void:
+func _load_game() -> void:
 	# First, we load the stage
 	
 	# Next, we load the players

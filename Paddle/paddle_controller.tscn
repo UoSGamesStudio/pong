@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Paddle/paddle.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Paddle/paddle_ball_reactor.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Input/two_player_input.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/Paddle/paddle_dash.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Paddle/States/paddle_dash.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Paddle/States/paddle_move.gd" type="Script" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 50.0
@@ -14,6 +15,7 @@ extents = Vector2( 15, 75 )
 
 [node name="PaddleController" type="KinematicBody2D"]
 script = ExtResource( 1 )
+_states_parent = NodePath("States")
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.4, 2.3 )
@@ -33,11 +35,16 @@ shape = SubResource( 2 )
 [node name="Input" type="Node" parent="."]
 script = ExtResource( 4 )
 
-[node name="Dash" type="Node" parent="."]
+[node name="States" type="Node" parent="."]
+
+[node name="Dash" type="Node" parent="States"]
 script = ExtResource( 5 )
 
-[node name="Timer" type="Timer" parent="Dash"]
+[node name="Timer" type="Timer" parent="States/Dash"]
 wait_time = 0.001
 one_shot = true
 
-[connection signal="timeout" from="Dash/Timer" to="Dash" method="_on_Timer_timeout"]
+[node name="Move" type="Node" parent="States"]
+script = ExtResource( 6 )
+
+[connection signal="timeout" from="States/Dash/Timer" to="States/Dash" method="_on_Timer_timeout"]
