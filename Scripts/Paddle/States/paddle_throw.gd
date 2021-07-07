@@ -12,8 +12,10 @@ func execute(_delta: float) -> void:
 		return
 		
 	var c := _input.get_control()
-	var dot := c.dot(_fields.shooting_direction)
-	if dot < 0:
+	if c == Vector2.ZERO:
+		c = _fields.shooting_direction
+		
+	elif c.dot(_fields.shooting_direction) < 0:
 		if sign(c.x) != sign(_fields.shooting_direction.x):
 			c.x *= -1
 		
@@ -22,4 +24,5 @@ func execute(_delta: float) -> void:
 	
 	_fields.held_ball.velocity = c * _launch_speed
 	_fields.held_ball = null
+	_fields.anim_has_thrown = true
 	

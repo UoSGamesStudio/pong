@@ -90,6 +90,11 @@ _global_script_classes=[ {
 "path": "res://Scripts/Paddle/States/paddle_state.gd"
 }, {
 "base": "Node2D",
+"class": "PaddleVisualController",
+"language": "GDScript",
+"path": "res://Scripts/Paddle/paddle_visuals.gd"
+}, {
+"base": "Node2D",
 "class": "Stage",
 "language": "GDScript",
 "path": "res://Scripts/Stage/stage.gd"
@@ -116,6 +121,7 @@ _global_script_class_icons={
 "PaddleBallReactor": "",
 "PaddleFields": "",
 "PaddleState": "",
+"PaddleVisualController": "",
 "Stage": "",
 "TwoPlayerInput": ""
 }

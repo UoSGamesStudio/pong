@@ -1,0 +1,77 @@
+[gd_resource type="Animation" format=2]
+
+[resource]
+resource_name = "paddle_punch"
+length = 0.45
+tracks/0/type = "value"
+tracks/0/path = NodePath("Visual/Skeleton2D/Root:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0600311, 0.160583, 0.31047, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -90 ), Vector2( 0, 40 ), Vector2( 0, -10 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Visual/Skeleton2D/Root/WingR_1:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0600311, 0.160283, 0.30987, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 30.0, -12.0, 0.4, 0.00226766 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Visual/Skeleton2D/Root/WingL_1:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.06, 0.16, 0.309941, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -30.0, 12.0, -0.4, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BallHoldPosition:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.0600311, 0.16, 0.31, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -50 ), Vector2( 0, -140 ), Vector2( 0, 0 ), Vector2( 0, -60 ), Vector2( 0, -50 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("BallCollision/AttackCollider/ColAttack:shape:extents")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.0600311, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 70, 5 ), Vector2( 50, 60 ), Vector2( 15, 5 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("BallCollision/AttackCollider:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.059731, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -40 ), Vector2( 0, 0 ) ]
+}
