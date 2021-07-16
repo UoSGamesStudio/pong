@@ -84,6 +84,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Paddle/paddle_fields.gd"
 }, {
+"base": "Node2D",
+"class": "PaddleSpawn",
+"language": "GDScript",
+"path": "res://Scripts/Stage/paddle_spawn.gd"
+}, {
 "base": "Node",
 "class": "PaddleState",
 "language": "GDScript",
@@ -120,6 +125,7 @@ _global_script_class_icons={
 "Paddle": "",
 "PaddleBallReactor": "",
 "PaddleFields": "",
+"PaddleSpawn": "",
 "PaddleState": "",
 "PaddleVisualController": "",
 "Stage": "",

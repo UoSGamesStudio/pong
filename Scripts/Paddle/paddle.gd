@@ -2,13 +2,18 @@ extends KinematicBody2D
 class_name Paddle
 
 export(NodePath) var _states_parent: NodePath
-export var _default_facing_direction := Vector2.RIGHT
+export var _default_facing_direction := Vector2.UP
 
 onready var _ball_reactor: PaddleBallReactor = $BallCollision/Regular
 onready var _input: InputNode = $Input
 
 var _fields := PaddleFields.new()
 var _states := []
+
+func set_shooting_direction(dir: Vector2) -> void:
+	_fields.shooting_direction = dir
+	rotation = dir.angle_to(_default_facing_direction)
+	rotation = -rotation
 
 func hold_ball(ball: Ball) -> void:
 	_fields.held_ball = ball
@@ -18,16 +23,14 @@ func get_fields() -> PaddleFields:
 
 func _ready() -> void:
 	_fields.ball_hold_position = $BallHoldPosition
-	_fields.shooting_direction = Vector2.UP
-	_default_facing_direction = _default_facing_direction.normalized()
+	_fields.shooting_direction = _default_facing_direction.normalized()
 	
-	_states =  get_children() if _states_parent.is_empty() else get_node(_states_parent).get_children()
+	_states = get_children() if _states_parent.is_empty() else get_node(_states_parent).get_children()
 	for state in _states:
 		state.set_fields(_fields)
 		state.set_input(_input)
 
 func _process(delta: float) -> void:
-	
 	for state in _states:
 		state.execute(delta)
 		if state.escape_stack_execution:
