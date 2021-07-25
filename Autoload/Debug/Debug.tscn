@@ -12,6 +12,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DbBallManager" type="Node" parent="."]
+[node name="DbBallManager" type="Control" parent="."]
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 scn_db_ball = ExtResource( 1 )

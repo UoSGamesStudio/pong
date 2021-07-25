@@ -140,8 +140,14 @@ config/icon="res://icon.png"
 
 [autoload]
 
-SignalTower="*res://Autoload/signal_tower.gd"
 Debug="*res://Autoload/Debug/Debug.tscn"
+Game="*res://Autoload/game.gd"
+SignalTower="*res://Autoload/signal_tower.gd"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
 
 [editor]
 
