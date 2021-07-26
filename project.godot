@@ -104,6 +104,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Stage/stage.gd"
 }, {
+"base": "Control",
+"class": "StageList",
+"language": "GDScript",
+"path": "res://Menu/StageSelection/stage_list.gd"
+}, {
+"base": "TextureButton",
+"class": "StageSelectIcon",
+"language": "GDScript",
+"path": "res://Stage/stage_select_icon.gd"
+}, {
 "base": "InputNode",
 "class": "TwoPlayerInput",
 "language": "GDScript",
@@ -129,6 +139,8 @@ _global_script_class_icons={
 "PaddleState": "",
 "PaddleVisualController": "",
 "Stage": "",
+"StageList": "",
+"StageSelectIcon": "",
 "TwoPlayerInput": ""
 }
 
@@ -146,8 +158,8 @@ SignalTower="*res://Autoload/signal_tower.gd"
 
 [display]
 
-window/size/width=1920
-window/size/height=1080
+window/size/width=1080
+window/size/height=720
 
 [editor]
 
