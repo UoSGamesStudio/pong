@@ -4,8 +4,8 @@
 [ext_resource path="res://Stage/stage_select_icon.gd" type="Script" id=2]
 
 [node name="Icon" type="TextureButton"]
-margin_right = 64.0
-margin_bottom = 64.0
+margin_right = 128.0
+margin_bottom = 128.0
 texture_normal = ExtResource( 1 )
 script = ExtResource( 2 )
 __meta__ = {

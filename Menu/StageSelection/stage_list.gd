@@ -20,7 +20,7 @@ func _ready() -> void:
 	var vert_limit := icons.size() - 1
 	for i in range(vert_limit + 1):
 		var hori_limit: int = icons[i].size() - 1
-		for j in range(hori_limit + 1):
+		for j in range(hori_limit):
 			if i != 0:
 				icons[i][j].focus_neighbour_top = PATH_START % [hbox_names[i - 1], icons[i - 1][j].name]
 			if i != vert_limit:

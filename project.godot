@@ -153,7 +153,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Debug="*res://Autoload/Debug/Debug.tscn"
-Game="*res://Autoload/game.gd"
+MngMatch="*res://Autoload/match_manager.gd"
 SignalTower="*res://Autoload/signal_tower.gd"
 
 [display]

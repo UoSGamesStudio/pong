@@ -3,8 +3,6 @@ extends Node
 autoload Game
 """
 
-var next_scene: PackedScene
-
 var paddles_scenes := []
 var ball_scene: PackedScene
 

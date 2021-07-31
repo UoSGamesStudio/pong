@@ -1,0 +1,11 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Dev/Stages/dev_standard.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Stage/stage_select_icon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Dev/Sprites/starry_skies.png" type="Texture" id=3]
+[ext_resource path="res://Dev/Stages/icn_star.png" type="Texture" id=4]
+
+[node name="SSicn_Stars" instance=ExtResource( 2 )]
+texture_normal = ExtResource( 4 )
+scn_stage = ExtResource( 1 )
+stage_preview_image = ExtResource( 3 )

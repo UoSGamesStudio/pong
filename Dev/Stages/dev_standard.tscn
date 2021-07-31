@@ -18,10 +18,6 @@ extents = Vector2( 50, 600 )
 script = ExtResource( 5 )
 _paddle_spawn_paths = [ NodePath("PlayerSpawnR"), NodePath("PlayerSpawnL") ]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-zoom = Vector2( 2, 2 )
-
 [node name="WallSouth" type="Node2D" parent="."]
 position = Vector2( 0, 580 )
 
