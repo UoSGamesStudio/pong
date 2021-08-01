@@ -5,7 +5,7 @@ export(NodePath) var _states_parent: NodePath
 export var _default_facing_direction := Vector2.UP
 
 onready var _ball_reactor: PaddleBallReactor = $BallCollision/Regular
-onready var _input: InputNode = $Input
+onready var input: InputNode = $Input
 
 var _fields := PaddleFields.new()
 var _states := []
@@ -28,7 +28,7 @@ func _ready() -> void:
 	_states = get_children() if _states_parent.is_empty() else get_node(_states_parent).get_children()
 	for state in _states:
 		state.set_fields(_fields)
-		state.set_input(_input)
+		state.set_input(input)
 
 func _process(delta: float) -> void:
 	for state in _states:

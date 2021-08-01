@@ -33,6 +33,7 @@ func set_paddles(paddles: Array) -> void:
 		var paddle := paddles[i] as Paddle
 		var spawn := _paddle_spawns[i] as PaddleSpawn
 		
+		paddle.input.set_input_index(i + 1)
 		paddle.position = spawn.global_position
 		paddle.set_shooting_direction(spawn.shooting_direction)
 

@@ -5,7 +5,7 @@
 [ext_resource path="res://Menu/StageSelection/stage_list.gd" type="Script" id=3]
 [ext_resource path="res://Menu/StageSelection/stage_select.gd" type="Script" id=4]
 [ext_resource path="res://Dev/Stages/Waters/icn_waters.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Dev/Stages/Dev1/icn_dev1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Dev/Stages/Stars/icn_dev1.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "stage_preview_popin"
