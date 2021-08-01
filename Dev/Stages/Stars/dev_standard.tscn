@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Scripts/Ball/ball_reactor.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/goal_area.gd" type="Script" id=2]
-[ext_resource path="res://Scripts/Stage/paddle_spawn.gd" type="Script" id=3]
+[ext_resource path="res://Ball/ball_reactor.gd" type="Script" id=1]
+[ext_resource path="res://Stage/Goals/goal_area.gd" type="Script" id=2]
+[ext_resource path="res://Stage/paddle_spawn.gd" type="Script" id=3]
 [ext_resource path="res://Dev/Sprites/starry_skies.png" type="Texture" id=4]
-[ext_resource path="res://Scripts/Stage/stage.gd" type="Script" id=5]
+[ext_resource path="res://Stage/stage.gd" type="Script" id=5]
+[ext_resource path="res://Dev/Sprites/wall.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1400, 30 )
@@ -27,6 +28,10 @@ texture = ExtResource( 4 )
 [node name="WallSouth" type="Node2D" parent="."]
 position = Vector2( 0, 580 )
 
+[node name="Sprite" type="Sprite" parent="WallSouth"]
+scale = Vector2( 100, 1.8 )
+texture = ExtResource( 6 )
+
 [node name="PaddleCollider" type="StaticBody2D" parent="WallSouth"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallSouth/PaddleCollider"]
@@ -42,6 +47,10 @@ shape = SubResource( 2 )
 
 [node name="WallNorth" type="Node2D" parent="."]
 position = Vector2( 0, -580 )
+
+[node name="Sprite" type="Sprite" parent="WallNorth"]
+scale = Vector2( 100, 1.8 )
+texture = ExtResource( 6 )
 
 [node name="PaddleCollider" type="StaticBody2D" parent="WallNorth"]
 

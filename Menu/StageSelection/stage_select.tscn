@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Paddle/paddle_controller.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Dev/Paddles/paddle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://maxresdefault.jpg" type="Texture" id=2]
 [ext_resource path="res://Menu/StageSelection/stage_list.gd" type="Script" id=3]
 [ext_resource path="res://Menu/StageSelection/stage_select.gd" type="Script" id=4]

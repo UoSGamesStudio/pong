@@ -1,16 +1,15 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://Scripts/Paddle/paddle.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/Paddle/paddle_ball_reactor.gd" type="Script" id=2]
+[ext_resource path="res://Paddle/Src/paddle_controller.gd" type="Script" id=1]
+[ext_resource path="res://Paddle/Src/paddle_ball_reactor.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
-[ext_resource path="res://Scripts/Input/two_player_input.gd" type="Script" id=4]
-[ext_resource path="res://Scripts/Paddle/States/paddle_dash.gd" type="Script" id=5]
-[ext_resource path="res://Scripts/Paddle/States/paddle_move.gd" type="Script" id=6]
-[ext_resource path="res://Scripts/Paddle/States/paddle_physics.gd" type="Script" id=7]
-[ext_resource path="res://Scripts/Paddle/States/paddle_throw.gd" type="Script" id=8]
+[ext_resource path="res://Input/two_player_input.gd" type="Script" id=4]
+[ext_resource path="res://Paddle/States/paddle_dash.gd" type="Script" id=5]
+[ext_resource path="res://Paddle/States/paddle_move.gd" type="Script" id=6]
+[ext_resource path="res://Paddle/States/paddle_physics.gd" type="Script" id=7]
+[ext_resource path="res://Paddle/States/paddle_throw.gd" type="Script" id=8]
 [ext_resource path="res://Dev/Sprites/dev.png" type="Texture" id=9]
 [ext_resource path="res://Paddle/Animation/paddle_punch.tres" type="Animation" id=10]
-[ext_resource path="res://Scripts/Paddle/paddle_visuals.gd" type="Script" id=11]
 [ext_resource path="res://Paddle/Animation/pdl_idle.tres" type="Animation" id=12]
 [ext_resource path="res://Paddle/Animation/pdl_throw.tres" type="Animation" id=13]
 
@@ -23,7 +22,36 @@ extents = Vector2( 140, 15 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 70, 5 )
 
-[node name="PaddleController" type="KinematicBody2D"]
+[sub_resource type="GDScript" id=4]
+script/source = "extends Node2D
+class_name PaddleVisualController
+
+export(NodePath) var _anim_player_path: NodePath
+export(NodePath) var _fields_node_path: NodePath
+
+export var _anim_on_attack := \"\"
+export var _anim_throw := \"\"
+
+var _fields: PaddleFields
+
+var _anim_player: AnimationPlayer
+
+func _ready() -> void:
+	_anim_player = get_node(_anim_player_path)
+	var f_node := get_node(_fields_node_path)
+	if f_node.has_method(\"get_fields\"):
+		_fields = f_node.get_fields()
+	else:
+		print(\"Node %s at NodePath %s doesn't have a get_fields method\" % [f_node.name, str(_fields_node_path)])
+		_fields = PaddleFields.new()
+
+func _process(_delta: float) -> void:
+	if _fields.anim_has_thrown:
+		_anim_player.play(_anim_throw)
+		_fields.anim_has_thrown = false
+"
+
+[node name="Paddle" type="KinematicBody2D"]
 script = ExtResource( 1 )
 _states_parent = NodePath("States")
 
@@ -67,7 +95,7 @@ shape = SubResource( 3 )
 position = Vector2( 0, -50 )
 
 [node name="Visual" type="Node2D" parent="."]
-script = ExtResource( 11 )
+script = SubResource( 4 )
 _anim_player_path = NodePath("../AnimationPlayer")
 _fields_node_path = NodePath("..")
 _anim_on_attack = "paddle_punch"
