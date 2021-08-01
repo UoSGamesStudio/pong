@@ -18,9 +18,8 @@ func _ready() -> void:
 			icon.connect("stage_selected", self, "_on_stage_selected")
 
 func _on_stage_highlighted(ss_icon: StageSelectIcon) -> void:
-	print(ss_icon.name)
 	_stage_preview.texture = ss_icon.stage_preview_image
 	_anim_player.play("stage_preview_popin")
 
 func _on_stage_selected(ss_icon: StageSelectIcon) -> void:
-	print(ss_icon.name + "select")
+	ss_icon.scn_stage

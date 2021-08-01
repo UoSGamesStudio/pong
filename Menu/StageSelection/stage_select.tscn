@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Dev/Stages/icon_dev_stage.tscn" type="PackedScene" id=1]
 [ext_resource path="res://maxresdefault.jpg" type="Texture" id=2]
 [ext_resource path="res://Menu/StageSelection/stage_list.gd" type="Script" id=3]
 [ext_resource path="res://Menu/StageSelection/stage_select.gd" type="Script" id=4]
@@ -48,13 +47,12 @@ margin_bottom = 720.0
 margin_right = 1080.0
 margin_bottom = 358.0
 size_flags_vertical = 3
-use_top_left = true
 
 [node name="StageDisplay" type="TextureRect" parent="MarginContainer/VBoxContainer/StageFrame"]
-margin_left = -300.0
-margin_top = -150.0
-margin_right = 300.0
-margin_bottom = 150.0
+margin_left = 240.0
+margin_top = 29.0
+margin_right = 840.0
+margin_bottom = 329.0
 rect_min_size = Vector2( 600, 300 )
 size_flags_vertical = 3
 texture = ExtResource( 2 )
@@ -79,105 +77,13 @@ margin_right = 1080.0
 margin_bottom = 128.0
 alignment = 1
 
-[node name="Icon2" parent="MarginContainer/VBoxContainer/StageList/VBIcons/HBIcons" instance=ExtResource( 6 )]
+[node name="SSicn_Stars" parent="MarginContainer/VBoxContainer/StageList/VBIcons/HBIcons" instance=ExtResource( 6 )]
 margin_left = 410.0
 margin_right = 538.0
 
 [node name="SSIcn_Waters" parent="MarginContainer/VBoxContainer/StageList/VBIcons/HBIcons" instance=ExtResource( 5 )]
 margin_left = 542.0
 margin_right = 670.0
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/StageList/VBIcons"]
-margin_top = 132.0
-margin_right = 1080.0
-margin_bottom = 196.0
-alignment = 1
-
-[node name="IconDevStage" parent="MarginContainer/VBoxContainer/StageList/VBIcons/HBoxContainer2" instance=ExtResource( 1 )]
-margin_left = 270.0
-margin_right = 334.0
-margin_bottom = 64.0
-
-[node name="IconDevStage2" parent="MarginContainer/VBoxContainer/StageList/VBIcons/HBoxContainer2" instance=ExtResource( 1 )]
-margin_left = 338.0
-margin_right = 402.0
-margin_bottom = 64.0
-
-[node name="IconDevStage3" parent="MarginContainer/VBoxContainer/StageList/VBIcons/HBoxContainer2" instance=ExtResource( 1 )]
-margin_left = 406.0
-margin_right = 470.0
-margin_bottom = 64.0
-
-[node name="IconDevStage4" parent="MarginContainer/VBoxContainer/StageList/VBIcons/HBoxContainer2" instance=ExtResource( 1 )]
-margin_left = 474.0
-margin_right = 538.0
-margin_bottom = 64.0
-
-[node name="IconDevStage5" parent="MarginContainer/VBoxContainer/StageList/VBIcons/HBoxContainer2" instance=ExtResource( 1 )]
-margin_left = 542.0
-margin_right = 606.0
-margin_bottom = 64.0
-
-[node name="IconDevStage6" parent="MarginContainer/VBoxContainer/StageList/VBIcons/HBoxContainer2" instance=ExtResource( 1 )]
-margin_left = 610.0
-margin_right = 674.0
-margin_bottom = 64.0
-
-[node name="IconDevStage7" parent="MarginContainer/VBoxContainer/StageList/VBIcons/HBoxContainer2" instance=ExtResource( 1 )]
-margin_left = 678.0
-margin_right = 742.0
-margin_bottom = 64.0
-
-[node name="IconDevStage8" parent="MarginContainer/VBoxContainer/StageList/VBIcons/HBoxContainer2" instance=ExtResource( 1 )]
-margin_left = 746.0
-margin_right = 810.0
-margin_bottom = 64.0
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/StageList/VBIcons"]
-margin_top = 200.0
-margin_right = 1080.0
-margin_bottom = 264.0
-alignment = 1
-
-[node name="IconDevStage" parent="MarginContainer/VBoxContainer/StageList/VBIcons/HBoxContainer3" instance=ExtResource( 1 )]
-margin_left = 270.0
-margin_right = 334.0
-margin_bottom = 64.0
-
-[node name="IconDevStage2" parent="MarginContainer/VBoxContainer/StageList/VBIcons/HBoxContainer3" instance=ExtResource( 1 )]
-margin_left = 338.0
-margin_right = 402.0
-margin_bottom = 64.0
-
-[node name="IconDevStage3" parent="MarginContainer/VBoxContainer/StageList/VBIcons/HBoxContainer3" instance=ExtResource( 1 )]
-margin_left = 406.0
-margin_right = 470.0
-margin_bottom = 64.0
-
-[node name="IconDevStage4" parent="MarginContainer/VBoxContainer/StageList/VBIcons/HBoxContainer3" instance=ExtResource( 1 )]
-margin_left = 474.0
-margin_right = 538.0
-margin_bottom = 64.0
-
-[node name="IconDevStage5" parent="MarginContainer/VBoxContainer/StageList/VBIcons/HBoxContainer3" instance=ExtResource( 1 )]
-margin_left = 542.0
-margin_right = 606.0
-margin_bottom = 64.0
-
-[node name="IconDevStage6" parent="MarginContainer/VBoxContainer/StageList/VBIcons/HBoxContainer3" instance=ExtResource( 1 )]
-margin_left = 610.0
-margin_right = 674.0
-margin_bottom = 64.0
-
-[node name="IconDevStage7" parent="MarginContainer/VBoxContainer/StageList/VBIcons/HBoxContainer3" instance=ExtResource( 1 )]
-margin_left = 678.0
-margin_right = 742.0
-margin_bottom = 64.0
-
-[node name="IconDevStage8" parent="MarginContainer/VBoxContainer/StageList/VBIcons/HBoxContainer3" instance=ExtResource( 1 )]
-margin_left = 746.0
-margin_right = 810.0
-margin_bottom = 64.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/stage_preview_popin = SubResource( 1 )

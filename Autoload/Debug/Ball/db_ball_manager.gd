@@ -11,9 +11,7 @@ var _db_ball_instances := []
 var _main : Node
 
 func _ready() -> void:
-	SignalTower.connect("stage_loaded", self, "_on_stage_loaded")
-	
-	_main = get_node("/root/Main")
+	pass
 	# Should extend here with code to find nodes that aren't autoloads
 
 func _on_stage_loaded() -> void:

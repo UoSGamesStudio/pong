@@ -9,11 +9,11 @@ signal stage_selected(ss_icon)
 
 var _just_focused := false
 
-func _on_focus_entered():
+func _on_focus_entered() -> void:
 	_just_focused = true
 	emit_signal("stage_highlighted", self)
 
-func _on_button_down():
+func _on_button_down() -> void:
 	if _just_focused:
 		_just_focused = false
 		return
