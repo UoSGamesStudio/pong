@@ -29,13 +29,12 @@ func _load_game() -> void:
 
 func _on_proceed_to_next_scene() -> void:
 	_clear()
-	var next := Game.next_scene.instance()
+	var next := ScnNav.next_scene.instance()
 	add_child(next)
-	
 	
 	if next is Stage:
 		var paddles := []
-		for ps in Game.paddles_scenes:
+		for ps in MngMatch.paddles_scenes:
 			var paddle := ps.instance() as Paddle
 			add_child(paddle)
 			paddles.append(paddle)

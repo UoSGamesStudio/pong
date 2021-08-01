@@ -155,6 +155,7 @@ config/icon="res://icon.png"
 Debug="*res://Autoload/Debug/Debug.tscn"
 MngMatch="*res://Autoload/match_manager.gd"
 SignalTower="*res://Autoload/signal_tower.gd"
+ScnNav="*res://Autoload/navigator.gd"
 
 [display]
 

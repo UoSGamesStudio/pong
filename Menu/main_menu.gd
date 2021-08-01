@@ -21,5 +21,5 @@ func _on_Settings_button_down():
 
 
 func _on_Offline_button_down():
-	Game.next_scene = _offline_next_screen
+	ScnNav.next_scene = _offline_next_screen
 	SignalTower.emit_signal("proceed_to_next_scene")

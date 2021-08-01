@@ -3,6 +3,8 @@ extends Control
 export(NodePath) var _stage_list_path: NodePath
 export(NodePath) var _stage_display_path: NodePath
 
+export(Array, PackedScene) var _temp_paddle_scenes: Array
+
 onready var _anim_player: AnimationPlayer = $AnimationPlayer
 
 var _stage_list: StageList
@@ -22,4 +24,6 @@ func _on_stage_highlighted(ss_icon: StageSelectIcon) -> void:
 	_anim_player.play("stage_preview_popin")
 
 func _on_stage_selected(ss_icon: StageSelectIcon) -> void:
-	ss_icon.scn_stage
+	ScnNav.next_scene = ss_icon.scn_stage
+	MngMatch.paddles_scenes = _temp_paddle_scenes
+	SignalTower.emit_signal("proceed_to_next_scene")
