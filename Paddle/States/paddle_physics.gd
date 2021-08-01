@@ -1,6 +1,6 @@
 extends PaddleState
 
-export(float, 0.1, 5.0) var traction := 2.0
+export(float, 0.1, 10.0) var traction := 2.0
 
 func execute(_delta: float) -> void:
 	var c := _input.get_control()

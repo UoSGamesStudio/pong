@@ -51,7 +51,7 @@ func _process(_delta: float) -> void:
 		_fields.anim_has_thrown = false
 "
 
-[node name="Paddle" type="KinematicBody2D"]
+[node name="DvStndPaddle" type="KinematicBody2D"]
 script = ExtResource( 1 )
 _states_parent = NodePath("States")
 
@@ -166,6 +166,7 @@ _launch_speed = 5.0
 
 [node name="Dash" type="Node" parent="States"]
 script = ExtResource( 5 )
+_dash_speed = 26.0
 
 [node name="Timer" type="Timer" parent="States/Dash"]
 wait_time = 0.001
@@ -173,5 +174,7 @@ one_shot = true
 
 [node name="Move" type="Node" parent="States"]
 script = ExtResource( 6 )
+speed = 7.0
+acceleration = 100.0
 
 [connection signal="timeout" from="States/Dash/Timer" to="States/Dash" method="_on_Timer_timeout"]
