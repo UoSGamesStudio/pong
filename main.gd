@@ -39,5 +39,8 @@ func _on_proceed_to_next_scene() -> void:
 			add_child(paddle)
 			paddles.append(paddle)
 		
-		next.set_paddles(paddles)
+		var ball := MngMatch.ball_scene.instance() as Ball
+		add_child(ball)
+		
+		MngMatch.setup_match(next, paddles, ball)
 		

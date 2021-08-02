@@ -14,7 +14,6 @@ var _control : Vector2
 
 func set_input_index(index: int) -> void:
 	keyboard_input_index = str(index)
-	print(keyboard_input_index)
 
 func get_control() -> Vector2:
 	return _control

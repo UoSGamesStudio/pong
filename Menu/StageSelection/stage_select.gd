@@ -4,6 +4,7 @@ export(NodePath) var _stage_list_path: NodePath
 export(NodePath) var _stage_display_path: NodePath
 
 export(Array, PackedScene) var _temp_paddle_scenes: Array
+export(PackedScene) var _temp_ball: PackedScene
 
 onready var _anim_player: AnimationPlayer = $AnimationPlayer
 
@@ -26,4 +27,5 @@ func _on_stage_highlighted(ss_icon: StageSelectIcon) -> void:
 func _on_stage_selected(ss_icon: StageSelectIcon) -> void:
 	ScnNav.next_scene = ss_icon.scn_stage
 	MngMatch.paddles_scenes = _temp_paddle_scenes
+	MngMatch.ball_scene = _temp_ball
 	SignalTower.emit_signal("proceed_to_next_scene")
