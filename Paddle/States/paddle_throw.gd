@@ -22,7 +22,10 @@ func execute(_delta: float) -> void:
 		if sign(c.y) != sign(_fields.shooting_direction.y):
 			c.y *= -1
 	
-	_fields.held_ball.velocity = c * _launch_speed
+	var vel := _fields.velocity
+	
+	
+	_fields.held_ball.velocity = c * _launch_speed + vel
 	_fields.held_ball = null
 	_fields.anim_has_thrown = true
 	

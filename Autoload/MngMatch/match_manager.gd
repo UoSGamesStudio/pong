@@ -4,6 +4,11 @@ autoload Game
 """
 
 signal scores_updated
+signal match_begun
+
+export var _default_match_time := 60
+
+onready var _match_timer: Timer = $MatchTimer
 
 var paddles_scenes := []
 var ball_scene: PackedScene
@@ -23,6 +28,9 @@ An array containing dictionaries of player information
 var players := {}
 
 var scores := {}
+
+func get_match_time_left() -> float:
+	return _match_timer.time_left
 
 func setup_match(stage: Stage, paddles: Array, ball: Ball) -> void:
 	self.stage = stage
@@ -45,10 +53,13 @@ func setup_match(stage: Stage, paddles: Array, ball: Ball) -> void:
 		scores[spawn.goal_area] = { id = id, score = 0 }
 		
 	
-	self.paddles[0].hold_ball(ball)
+	paddles[0].hold_ball(ball)
 	
 	for ga in stage.goal_areas:
 		ga.connect("goal_scored", self, "_on_goal_scored")
+	
+	_match_timer.start(_default_match_time)
+	emit_signal("match_begun")
 
 func _on_goal_scored(goal_scorer: GoalScorer, goal_area: GoalArea) -> void:
 	for player in players.values():
@@ -65,3 +76,8 @@ func _on_goal_scored(goal_scorer: GoalScorer, goal_area: GoalArea) -> void:
 func _reset_players() -> void:
 	for player in players.values():
 		player.paddle.position = player.spawn.global_position
+
+
+func _on_MatchTimer_timeout():
+	print("Match over")
+	pass # Replace with function body.

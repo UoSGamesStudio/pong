@@ -1,0 +1,59 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://UI/NumDisplay/num_display.gd" type="Script" id=1]
+[ext_resource path="res://UI/NumDisplay/Textures/six.jpg" type="Texture" id=2]
+[ext_resource path="res://UI/NumDisplay/Textures/three.jpg" type="Texture" id=3]
+[ext_resource path="res://UI/NumDisplay/Textures/nine.jpg" type="Texture" id=4]
+[ext_resource path="res://UI/NumDisplay/Textures/one.jpg" type="Texture" id=5]
+[ext_resource path="res://UI/NumDisplay/Textures/seven.jpg" type="Texture" id=6]
+[ext_resource path="res://UI/NumDisplay/Textures/two.jpg" type="Texture" id=7]
+[ext_resource path="res://UI/NumDisplay/Textures/eight.jpg" type="Texture" id=8]
+[ext_resource path="res://UI/NumDisplay/Textures/four.jpg" type="Texture" id=9]
+[ext_resource path="res://UI/NumDisplay/Textures/zero..jpg" type="Texture" id=10]
+[ext_resource path="res://UI/NumDisplay/Textures/five.jpg" type="Texture" id=11]
+
+[node name="NumDisplay" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+_number_textures = [ ExtResource( 10 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 4 ) ]
+
+[node name="CnTens" type="CenterContainer" parent="."]
+margin_right = 538.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TRTens" type="TextureRect" parent="CnTens"]
+margin_left = 237.0
+margin_top = 296.0
+margin_right = 301.0
+margin_bottom = 424.0
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CnUnits" type="CenterContainer" parent="."]
+margin_left = 542.0
+margin_right = 1080.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TRUnits" type="TextureRect" parent="CnUnits"]
+margin_left = 237.0
+margin_top = 296.0
+margin_right = 301.0
+margin_bottom = 424.0
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

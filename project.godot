@@ -69,10 +69,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://main.gd"
 }, {
+"base": "MarginContainer",
+"class": "MatchHUD",
+"language": "GDScript",
+"path": "res://Stage/MatchHUD/match_hud.gd"
+}, {
 "base": "Reference",
 "class": "Math",
 "language": "GDScript",
 "path": "res://Scripts/math.gd"
+}, {
+"base": "HBoxContainer",
+"class": "NumDisplay",
+"language": "GDScript",
+"path": "res://UI/NumDisplay/num_display.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Paddle",
@@ -132,7 +142,9 @@ _global_script_class_icons={
 "IButton": "",
 "InputNode": "",
 "Main": "",
+"MatchHUD": "",
 "Math": "",
+"NumDisplay": "",
 "Paddle": "",
 "PaddleBallReactor": "",
 "PaddleFields": "",
@@ -153,8 +165,8 @@ config/icon="res://icon.png"
 [autoload]
 
 Debug="*res://Autoload/Debug/Debug.tscn"
-MngMatch="*res://Autoload/match_manager.gd"
 SignalTower="*res://Autoload/signal_tower.gd"
+MngMatch="*res://Autoload/MngMatch/MngMatch.tscn"
 ScnNav="*res://Autoload/navigator.gd"
 
 [display]
