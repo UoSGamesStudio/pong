@@ -69,6 +69,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://main.gd"
 }, {
+"base": "Control",
+"class": "MatchCountdown",
+"language": "GDScript",
+"path": "res://Autoload/MngMatch/match_countdown.gd"
+}, {
 "base": "MarginContainer",
 "class": "MatchHUD",
 "language": "GDScript",
@@ -142,6 +147,7 @@ _global_script_class_icons={
 "IButton": "",
 "InputNode": "",
 "Main": "",
+"MatchCountdown": "",
 "MatchHUD": "",
 "Math": "",
 "NumDisplay": "",
@@ -166,7 +172,7 @@ config/icon="res://icon.png"
 
 Debug="*res://Autoload/Debug/Debug.tscn"
 SignalTower="*res://Autoload/signal_tower.gd"
-MngMatch="*res://Autoload/MngMatch/MngMatch.tscn"
+MngMatch="*res://Autoload/MngMatch/mng_match.tscn"
 ScnNav="*res://Autoload/navigator.gd"
 
 [display]

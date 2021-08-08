@@ -8,6 +8,7 @@ signal match_begun
 
 export var _default_match_time := 60
 
+onready var _match_countdown: MatchCountdown = $UI/MatchCountdown
 onready var _match_timer: Timer = $MatchTimer
 
 var paddles_scenes := []
@@ -33,6 +34,9 @@ func get_match_time_left() -> float:
 	return _match_timer.time_left
 
 func setup_match(stage: Stage, paddles: Array, ball: Ball) -> void:
+	players.clear()
+	scores.clear()
+	
 	self.stage = stage
 	self.ball = ball
 	
@@ -44,6 +48,7 @@ func setup_match(stage: Stage, paddles: Array, ball: Ball) -> void:
 		
 		var id := i + 1
 		paddle.input.set_input_index(id)
+		paddle.input.set_process(false)
 		paddle.position = spawn.global_position
 		paddle.set_shooting_direction(spawn.shooting_direction)
 		
@@ -54,6 +59,8 @@ func setup_match(stage: Stage, paddles: Array, ball: Ball) -> void:
 		
 	
 	paddles[0].hold_ball(ball)
+	
+	_match_countdown.play()
 	
 	for ga in stage.goal_areas:
 		ga.connect("goal_scored", self, "_on_goal_scored")
@@ -76,8 +83,14 @@ func _on_goal_scored(goal_scorer: GoalScorer, goal_area: GoalArea) -> void:
 func _reset_players() -> void:
 	for player in players.values():
 		player.paddle.position = player.spawn.global_position
+		
 
 
 func _on_MatchTimer_timeout():
 	print("Match over")
 	pass # Replace with function body.
+
+
+func _on_match_countdown_over():
+	for player in players.values():
+		player.paddle.input.set_process(true)
