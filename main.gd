@@ -12,6 +12,8 @@ export(PackedScene) var _starting_menu: PackedScene
 func _ready():
 	SignalTower.connect("proceed_to_next_scene", self, "_on_proceed_to_next_scene")
 	
+	ScnNav.connect("to_main_menu", self, "_on_to_main_menu")
+	
 	var menu := _starting_menu.instance()
 	add_child(menu)
 
@@ -19,17 +21,10 @@ func _clear() -> void:
 	for child in get_children():
 		child.queue_free()
 
-func _load_game() -> void:
-	# First, we load the stage
-	
-	# Next, we load the players
-	
-	# Finally we load the ball
-	pass
-
 func _on_proceed_to_next_scene() -> void:
 	_clear()
 	var next := ScnNav.next_scene.instance()
+	ScnNav.next_scene = null
 	add_child(next)
 	
 	if next is Stage:
@@ -43,4 +38,8 @@ func _on_proceed_to_next_scene() -> void:
 		add_child(ball)
 		
 		MngMatch.setup_match(next, paddles, ball)
-		
+
+func _on_to_main_menu() -> void:
+	ScnNav.next_scene = _starting_menu
+	_on_proceed_to_next_scene()
+	pass

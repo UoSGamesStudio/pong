@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Menu/WinScreen/win_screen.gd" type="Script" id=1]
+
+[node name="WinScreen" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1060.0
+margin_bottom = 700.0
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+margin_right = 1040.0
+margin_bottom = 338.0
+size_flags_vertical = 3
+
+[node name="WinnerLabel" type="Label" parent="HBoxContainer/Control"]
+margin_right = 1040.0
+margin_bottom = 14.0
+rect_scale = Vector2( 10, 10 )
+text = "Winner"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" type="Control" parent="HBoxContainer"]
+margin_top = 342.0
+margin_right = 1040.0
+margin_bottom = 680.0
+size_flags_vertical = 3
+
+[node name="WinnerName" type="Label" parent="HBoxContainer/Control2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 5, 5 )
+rect_pivot_offset = Vector2( 520, 169 )
+text = "Name"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

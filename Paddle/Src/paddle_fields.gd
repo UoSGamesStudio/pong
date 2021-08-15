@@ -13,3 +13,6 @@ To be set by the regular states, to be consumed by the visual states
 """
 
 var anim_has_thrown := false
+
+func reset() -> void:
+	velocity = Vector2()

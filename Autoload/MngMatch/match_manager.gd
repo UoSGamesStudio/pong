@@ -7,6 +7,7 @@ signal scores_updated
 signal match_begun
 
 export var _default_match_time := 60
+export(PackedScene) var _win_screen_scene: PackedScene
 
 onready var _match_countdown: MatchCountdown = $UI/MatchCountdown
 onready var _match_timer: Timer = $MatchTimer
@@ -27,8 +28,10 @@ An array containing dictionaries of player information
 }
 """
 var players := {}
-
 var scores := {}
+var in_match := false
+
+var winning_player := {}
 
 func get_match_time_left() -> float:
 	return _match_timer.time_left
@@ -67,6 +70,7 @@ func setup_match(stage: Stage, paddles: Array, ball: Ball) -> void:
 	
 	_match_timer.start(_default_match_time)
 	emit_signal("match_begun")
+	in_match = true
 
 func _on_goal_scored(goal_scorer: GoalScorer, goal_area: GoalArea) -> void:
 	for player in players.values():
@@ -83,13 +87,20 @@ func _on_goal_scored(goal_scorer: GoalScorer, goal_area: GoalArea) -> void:
 func _reset_players() -> void:
 	for player in players.values():
 		player.paddle.position = player.spawn.global_position
-		
-
+		player.paddle.get_fields().reset()
 
 func _on_MatchTimer_timeout():
-	print("Match over")
-	pass # Replace with function body.
-
+	in_match = false
+	winning_player = players.values()[0];
+	var largest_score: int = scores[players.values()[0].goal_area].score
+	for i in range(1, players.values().size()):
+		var score: int = scores[players.values()[i].goal_area].score
+		if score > largest_score:
+			winning_player = players[i]
+			largest_score = score
+	
+	ScnNav.next_scene = _win_screen_scene
+	SignalTower.emit_signal("proceed_to_next_scene")
 
 func _on_match_countdown_over():
 	for player in players.values():

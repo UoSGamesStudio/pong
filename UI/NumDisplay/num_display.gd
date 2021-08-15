@@ -22,4 +22,5 @@ func set_number(num: int) -> void:
 		_tens.texture = _textures[number[0]]
 		_units.texture = _textures[number[1]]
 	else:
+		_tens.texture = _textures["0"]
 		_units.texture = _textures[number[0]]
