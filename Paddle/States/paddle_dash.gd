@@ -11,7 +11,7 @@ var _can_dash := true
 
 func execute(delta: float) -> void:
 	if not _can_dash: # For now we assume we are dashing
-		_fields.velocity = _dash_vector * _dash_speed
+		_fields.velocity = _fields.dash_vector * _dash_speed
 		return
 
 	if _input == null:
@@ -19,12 +19,14 @@ func execute(delta: float) -> void:
 	
 	if _input.get_dash().is_down():
 		_can_dash = false
-		_dash_vector = _input.get_control()
+		_fields.dash_vector = _input.get_control()
+		_fields.is_dashing = true
 		_timer.start(timeout)
 		escape_stack_execution = true
 
 
 func _on_Timer_timeout():
 	_can_dash = true
+	_fields.is_dashing = false
+	_fields.dash_vector = Vector2()
 	escape_stack_execution = false
-	print("timeout")

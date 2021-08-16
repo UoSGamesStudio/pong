@@ -3,9 +3,13 @@ class_name PaddleFields
 var shooting_direction: Vector2
 
 var velocity := Vector2()
+var rotation_degrees := 0.0
 
 var held_ball: Ball
 var ball_hold_position: Node2D
+
+var dash_vector: Vector2
+var is_dashing := false
 
 """
 Animation Fields
