@@ -15,3 +15,5 @@ func execute(delta: float) -> void:
 		var perp := _fields.shooting_direction.rotated(PI / 2)
 		to = perp.dot(c) * max_rotation
 	_fields.rotation_degrees = move_toward(_fields.rotation_degrees, to, delta * rotation_accel)
+	
+	_fields.body_normal = _fields.shooting_direction.rotated(deg2rad(_fields.rotation_degrees))

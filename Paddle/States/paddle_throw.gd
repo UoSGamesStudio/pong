@@ -28,4 +28,3 @@ func execute(_delta: float) -> void:
 	_fields.held_ball.velocity = c * _launch_speed + vel
 	_fields.held_ball = null
 	_fields.anim_has_thrown = true
-	

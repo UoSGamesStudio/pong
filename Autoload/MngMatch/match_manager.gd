@@ -68,9 +68,7 @@ func setup_match(stage: Stage, paddles: Array, ball: Ball) -> void:
 	for ga in stage.goal_areas:
 		ga.connect("goal_scored", self, "_on_goal_scored")
 	
-	_match_timer.start(_default_match_time)
 	emit_signal("match_begun")
-	in_match = true
 
 func _on_goal_scored(goal_scorer: GoalScorer, goal_area: GoalArea) -> void:
 	for player in players.values():
@@ -105,3 +103,6 @@ func _on_MatchTimer_timeout():
 func _on_match_countdown_over():
 	for player in players.values():
 		player.paddle.input.set_process(true)
+	
+	_match_timer.start(_default_match_time)
+	in_match = true

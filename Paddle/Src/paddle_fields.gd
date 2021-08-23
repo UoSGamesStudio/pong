@@ -1,6 +1,7 @@
 class_name PaddleFields
 
 var shooting_direction: Vector2
+var body_normal: Vector2
 
 var velocity := Vector2()
 var rotation_degrees := 0.0
@@ -17,6 +18,7 @@ To be set by the regular states, to be consumed by the visual states
 """
 
 var anim_has_thrown := false
+var anim_punch := false
 
 func reset() -> void:
 	velocity = Vector2()

@@ -1,10 +1,10 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Dev/Sprites/dev.png" type="Texture" id=2]
 [ext_resource path="res://Paddle/Src/paddle_controller.gd" type="Script" id=3]
 [ext_resource path="res://Paddle/Src/paddle_ball_reactor.gd" type="Script" id=4]
-[ext_resource path="res://Paddle/Animation/paddle_punch.tres" type="Animation" id=5]
+[ext_resource path="res://Paddle/Animation/pdl_punch.tres" type="Animation" id=5]
 [ext_resource path="res://Paddle/Animation/pdl_idle.tres" type="Animation" id=6]
 [ext_resource path="res://Paddle/Animation/pdl_throw.tres" type="Animation" id=7]
 [ext_resource path="res://Paddle/States/paddle_physics.gd" type="Script" id=8]
@@ -13,6 +13,9 @@
 [ext_resource path="res://Paddle/States/paddle_move.gd" type="Script" id=11]
 [ext_resource path="res://Paddle/States/paddle_dash.gd" type="Script" id=12]
 [ext_resource path="res://Paddle/States/paddle_rotate.gd" type="Script" id=13]
+[ext_resource path="res://Paddle/States/paddle_attack.gd" type="Script" id=14]
+[ext_resource path="res://Paddle/Src/paddle_anim_player.gd" type="Script" id=15]
+[ext_resource path="res://Paddle/Src/attack_reactor.gd" type="Script" id=16]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 100.0
@@ -21,35 +24,7 @@ radius = 100.0
 extents = Vector2( 140, 15 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 15, 5 )
-
-[sub_resource type="GDScript" id=4]
-script/source = "extends Node2D
-
-export(NodePath) var _anim_player_path: NodePath
-export(NodePath) var _fields_node_path: NodePath
-
-export var _anim_on_attack := \"\"
-export var _anim_throw := \"\"
-
-var _fields: PaddleFields
-
-var _anim_player: AnimationPlayer
-
-func _ready() -> void:
-	_anim_player = get_node(_anim_player_path)
-	var f_node := get_node(_fields_node_path)
-	if f_node.has_method(\"get_fields\"):
-		_fields = f_node.get_fields()
-	else:
-		print(\"Node %s at NodePath %s doesn't have a get_fields method\" % [f_node.name, str(_fields_node_path)])
-		_fields = PaddleFields.new()
-
-func _process(_delta: float) -> void:
-	if _fields.anim_has_thrown:
-		_anim_player.play(_anim_throw)
-		_fields.anim_has_thrown = false
-"
+extents = Vector2( 70, 5 )
 
 [node name="DvStndPaddle" type="KinematicBody2D"]
 script = ExtResource( 3 )
@@ -57,9 +32,13 @@ _ball_hold_position_path = NodePath("Pivot/BallHoldPosition")
 _states_parent = NodePath("States")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/paddle_punch = ExtResource( 5 )
 anims/pdl_idle = ExtResource( 6 )
+anims/pdl_punch = ExtResource( 5 )
 anims/pdl_throw = ExtResource( 7 )
+script = ExtResource( 15 )
+_fields_node_path = NodePath("..")
+_anim_attack = "pdl_punch"
+_anim_throw = "pdl_throw"
 
 [node name="ControllerCol" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -85,24 +64,20 @@ shape = SubResource( 2 )
 [node name="AttackCollider" type="StaticBody2D" parent="Pivot/BallCollision"]
 collision_layer = 4
 collision_mask = 4
-script = ExtResource( 4 )
+script = ExtResource( 16 )
 __meta__ = {
 "_editor_description_": "The collider for the ball"
 }
+_fields_path = NodePath("../../..")
 
 [node name="ColAttack" type="CollisionShape2D" parent="Pivot/BallCollision/AttackCollider"]
 position = Vector2( 0, -0.126 )
 shape = SubResource( 3 )
 
 [node name="BallHoldPosition" type="Node2D" parent="Pivot"]
-position = Vector2( 0, -53.5714 )
+position = Vector2( 0, -50 )
 
 [node name="Visual" type="Node2D" parent="Pivot"]
-script = SubResource( 4 )
-_anim_player_path = NodePath("../../AnimationPlayer")
-_fields_node_path = NodePath("../..")
-_anim_on_attack = "paddle_punch"
-_anim_throw = "pdl_throw"
 
 [node name="Polygon2D" type="Polygon2D" parent="Pivot/Visual"]
 position = Vector2( -150, -15 )
@@ -116,12 +91,10 @@ bones = [ NodePath("Root"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
 [node name="Skeleton2D" type="Skeleton2D" parent="Pivot/Visual"]
 
 [node name="Root" type="Bone2D" parent="Pivot/Visual/Skeleton2D"]
-position = Vector2( 0, -3.58346 )
 rest = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="WingR_1" type="Bone2D" parent="Pivot/Visual/Skeleton2D/Root"]
 position = Vector2( 0, 5 )
-rotation = 0.00251647
 rest = Transform2D( 1, 0, 0, 1, 0, 5 )
 
 [node name="WingR_2" type="Bone2D" parent="Pivot/Visual/Skeleton2D/Root/WingR_1"]
@@ -138,7 +111,6 @@ rest = Transform2D( 1, 0, 0, 1, 50, 0 )
 
 [node name="WingL_1" type="Bone2D" parent="Pivot/Visual/Skeleton2D/Root"]
 position = Vector2( 0, 5 )
-rotation = -0.00249228
 rest = Transform2D( 1, 0, 0, 1, 0, 5 )
 
 [node name="WingL_2" type="Bone2D" parent="Pivot/Visual/Skeleton2D/Root/WingL_1"]
@@ -166,6 +138,9 @@ script = ExtResource( 9 )
 [node name="Physics" type="Node" parent="States"]
 script = ExtResource( 8 )
 traction = 6.0
+
+[node name="Attack" type="Node" parent="States"]
+script = ExtResource( 14 )
 
 [node name="Throw" type="Node" parent="States"]
 script = ExtResource( 10 )
