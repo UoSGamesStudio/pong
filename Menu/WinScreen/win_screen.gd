@@ -7,4 +7,4 @@ func _ready():
 
 func _unhandled_key_input(event: InputEventKey) -> void:
 	if event.is_pressed():
-		ScnNav.emit_signal("to_main_menu")
+		Game.to_main_menu()

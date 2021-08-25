@@ -12,9 +12,6 @@ export(PackedScene) var _win_screen_scene: PackedScene
 onready var _match_countdown: MatchCountdown = $UI/MatchCountdown
 onready var _match_timer: Timer = $MatchTimer
 
-var paddles_scenes := []
-var ball_scene: PackedScene
-
 var stage: Stage
 var ball: Ball
 
@@ -97,8 +94,8 @@ func _on_MatchTimer_timeout():
 			winning_player = players[i]
 			largest_score = score
 	
-	ScnNav.next_scene = _win_screen_scene
-	SignalTower.emit_signal("proceed_to_next_scene")
+	var win_screen := _win_screen_scene.instance()
+	Game.add_node(win_screen)
 
 func _on_match_countdown_over():
 	for player in players.values():

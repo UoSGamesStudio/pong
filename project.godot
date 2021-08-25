@@ -44,11 +44,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/node_helper.gd"
 }, {
-"base": "Node",
-"class": "Game",
-"language": "GDScript",
-"path": "res://Autoload/game.gd"
-}, {
 "base": "Area2D",
 "class": "GoalArea",
 "language": "GDScript",
@@ -68,11 +63,6 @@ _global_script_classes=[ {
 "class": "InputNode",
 "language": "GDScript",
 "path": "res://Input/input_node.gd"
-}, {
-"base": "Node",
-"class": "Main",
-"language": "GDScript",
-"path": "res://main.gd"
 }, {
 "base": "Control",
 "class": "MatchCountdown",
@@ -152,12 +142,10 @@ _global_script_class_icons={
 "DbBallManager": "",
 "DebugLog": "",
 "ExNode": "",
-"Game": "",
 "GoalArea": "",
 "GoalScorer": "",
 "IButton": "",
 "InputNode": "",
-"Main": "",
 "MatchCountdown": "",
 "MatchHUD": "",
 "Math": "",
@@ -183,6 +171,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Debug="*res://Autoload/Debug/Debug.tscn"
+Game="*res://Autoload/Game.tscn"
 SignalTower="*res://Autoload/signal_tower.gd"
 MngMatch="*res://Autoload/MngMatch/mng_match.tscn"
 ScnNav="*res://Autoload/navigator.gd"

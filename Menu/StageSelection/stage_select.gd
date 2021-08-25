@@ -25,7 +25,4 @@ func _on_stage_highlighted(ss_icon: StageSelectIcon) -> void:
 	_anim_player.play("stage_preview_popin")
 
 func _on_stage_selected(ss_icon: StageSelectIcon) -> void:
-	ScnNav.next_scene = ss_icon.scn_stage
-	MngMatch.paddles_scenes = _temp_paddle_scenes
-	MngMatch.ball_scene = _temp_ball
-	SignalTower.emit_signal("proceed_to_next_scene")
+	Game.to_stage(ss_icon.scn_stage,  _temp_ball, _temp_paddle_scenes)
