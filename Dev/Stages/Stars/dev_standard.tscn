@@ -20,6 +20,7 @@ extents = Vector2( 50, 600 )
 [node name="DevStage001" type="Node2D"]
 script = ExtResource( 5 )
 _paddle_spawn_paths = [ NodePath("PlayerSpawnR"), NodePath("PlayerSpawnL") ]
+scn_hud = ExtResource( 7 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 195.088, 709.716 )
@@ -98,10 +99,6 @@ _goal_area_path = NodePath("../GoalAreaL")
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 2, 2 )
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="MatchHUD" parent="CanvasLayer" instance=ExtResource( 7 )]
 
 [connection signal="body_entered" from="GoalAreaR" to="GoalAreaR" method="_on_GoalArea_body_entered"]
 [connection signal="body_entered" from="GoalAreaL" to="GoalAreaL" method="_on_GoalArea_body_entered"]

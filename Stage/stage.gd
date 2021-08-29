@@ -1,20 +1,13 @@
 extends Node2D
 class_name Stage
 """
-class Stage
-The arena in which the games take place.
-Stage scenes should only contain:
-- Ball and Player spawn points
-- the walls
 - the goals
 - the camera
 - anything visual pertaining to the above
 """
 
 export(Array, NodePath) var _paddle_spawn_paths := []
-
-enum StageType { ONE_V_ONE }
-export(StageType) var stage_type: int
+export(PackedScene) var scn_hud: PackedScene
 
 var paddle_spawns := []
 var goal_areas := []

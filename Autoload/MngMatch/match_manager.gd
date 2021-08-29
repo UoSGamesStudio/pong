@@ -94,8 +94,10 @@ func _on_MatchTimer_timeout():
 			winning_player = players[i]
 			largest_score = score
 	
-	var win_screen := _win_screen_scene.instance()
-	Game.add_node(win_screen)
+	var canvas := CanvasLayer.new()
+	canvas.layer = 2
+	canvas.add_child(_win_screen_scene.instance())
+	Game.add_node(canvas)
 
 func _on_match_countdown_over():
 	for player in players.values():
