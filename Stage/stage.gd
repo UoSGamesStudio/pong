@@ -7,7 +7,6 @@ class_name Stage
 """
 
 export(Array, NodePath) var _paddle_spawn_paths := []
-export(PackedScene) var scn_hud: PackedScene
 
 var paddle_spawns := []
 var goal_areas := []

@@ -1,0 +1,166 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Paddle/Animation/pdl_idle.tres" type="Animation" id=1]
+[ext_resource path="res://Paddle/Animation/pdl_throw.tres" type="Animation" id=2]
+[ext_resource path="res://Paddle/Animation/pdl_punch.tres" type="Animation" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://Paddle/Src/paddle_controller.gd" type="Script" id=5]
+[ext_resource path="res://Paddle/States/paddle_physics.gd" type="Script" id=6]
+[ext_resource path="res://Paddle/Src/paddle_ball_reactor.gd" type="Script" id=7]
+[ext_resource path="res://Paddle/States/paddle_move.gd" type="Script" id=8]
+[ext_resource path="res://Paddle/Src/paddle_anim_player.gd" type="Script" id=9]
+[ext_resource path="res://Input/two_player_input.gd" type="Script" id=10]
+[ext_resource path="res://Paddle/States/paddle_dash.gd" type="Script" id=11]
+[ext_resource path="res://Paddle/States/paddle_rotate.gd" type="Script" id=12]
+[ext_resource path="res://Paddle/States/paddle_attack.gd" type="Script" id=13]
+[ext_resource path="res://Paddle/States/paddle_throw.gd" type="Script" id=14]
+[ext_resource path="res://Paddle/Src/attack_reactor.gd" type="Script" id=15]
+[ext_resource path="res://Paddle/Textures/test_paddle.png" type="Texture" id=16]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 100.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 140, 15 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 70, 5 )
+
+[node name="DvStndPaddle" type="KinematicBody2D"]
+script = ExtResource( 5 )
+_ball_hold_position_path = NodePath("Pivot/BallHoldPosition")
+_states_parent = NodePath("States")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/pdl_idle = ExtResource( 1 )
+anims/pdl_punch = ExtResource( 3 )
+anims/pdl_throw = ExtResource( 2 )
+script = ExtResource( 9 )
+_fields_node_path = NodePath("..")
+_anim_attack = "pdl_punch"
+_anim_throw = "pdl_throw"
+
+[node name="ControllerCol" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+__meta__ = {
+"_editor_description_": "The collider for other paddles and the walls"
+}
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="BallCollision" type="Node2D" parent="Pivot"]
+
+[node name="Regular" type="StaticBody2D" parent="Pivot/BallCollision"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 7 )
+__meta__ = {
+"_editor_description_": "The collider for the ball"
+}
+
+[node name="ColRegular" type="CollisionShape2D" parent="Pivot/BallCollision/Regular"]
+shape = SubResource( 2 )
+
+[node name="AttackCollider" type="StaticBody2D" parent="Pivot/BallCollision"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 15 )
+__meta__ = {
+"_editor_description_": "The collider for the ball"
+}
+_fields_path = NodePath("../../..")
+
+[node name="ColAttack" type="CollisionShape2D" parent="Pivot/BallCollision/AttackCollider"]
+position = Vector2( 0, -0.126 )
+shape = SubResource( 3 )
+
+[node name="BallHoldPosition" type="Node2D" parent="Pivot"]
+position = Vector2( 0, -50 )
+
+[node name="Visual" type="Node2D" parent="Pivot"]
+
+[node name="Polygon2D" type="Polygon2D" parent="Pivot/Visual"]
+position = Vector2( -150, -15 )
+texture = ExtResource( 16 )
+skeleton = NodePath("../Skeleton2D")
+polygon = PoolVector2Array( 0, 0, 10, 0, 20, 0, 30, 0, 40, 0, 50, 0, 60, 0, 70, 0, 80, 0, 90, 0, 100, 0, 110, 0, 120, 0, 130, 0, 140, 0, 150, 0, 160, 0, 170, 0, 180, 0, 190, 0, 200, 0, 210, 0, 220, 0, 230, 0, 240, 0, 250, 0, 260, 0, 270, 0, 280, 0, 290, 0, 300, 0, 300, 30, 290, 30, 280, 30, 270, 30, 260, 30, 250, 30, 240, 30, 230, 30, 220, 30, 210, 30, 200, 30, 190, 30, 180, 30, 170, 30, 160, 30, 150, 30, 140, 30, 130, 30, 120, 30, 110, 30, 100, 30, 90, 30, 80, 30, 70, 30, 60, 30, 50, 30, 40, 30, 30, 30, 20, 30, 10, 30, 0, 30 )
+uv = PoolVector2Array( 0, 0, 10, 0, 20, 0, 30, 0, 40, 0, 50, 0, 60, 0, 70, 0, 80, 0, 90, 0, 100, 0, 110, 0, 120, 0, 130, 0, 140, 0, 150, 0, 160, 0, 170, 0, 180, 0, 190, 0, 200, 0, 210, 0, 220, 0, 230, 0, 240, 0, 250, 0, 260, 0, 270, 0, 280, 0, 290, 0, 300, 0, 300, 30, 290, 30, 280, 30, 270, 30, 260, 30, 250, 30, 240, 30, 230, 30, 220, 30, 210, 30, 200, 30, 190, 30, 180, 30, 170, 30, 160, 30, 150, 30, 140, 30, 130, 30, 120, 30, 110, 30, 100, 30, 90, 30, 80, 30, 70, 30, 60, 30, 50, 30, 40, 30, 30, 30, 20, 30, 10, 30, 0, 30 )
+polygons = [ PoolIntArray( 0, 61, 60, 1 ), PoolIntArray( 1, 60, 59, 2 ), PoolIntArray( 2, 59, 58, 3 ), PoolIntArray( 3, 4, 57, 58 ), PoolIntArray( 4, 57, 56, 5 ), PoolIntArray( 5, 56, 55, 6 ), PoolIntArray( 6, 55, 54, 7 ), PoolIntArray( 7, 54, 53, 8 ), PoolIntArray( 8, 53, 52, 9 ), PoolIntArray( 9, 52, 51, 10 ), PoolIntArray( 10, 51, 50, 11 ), PoolIntArray( 11, 50, 49, 12 ), PoolIntArray( 12, 13, 48, 49 ), PoolIntArray( 13, 14, 47, 48 ), PoolIntArray( 14, 47, 46, 15 ), PoolIntArray( 15, 46, 45, 16 ), PoolIntArray( 16, 45, 44, 17 ), PoolIntArray( 17, 44, 43, 18 ), PoolIntArray( 18, 43, 42, 19 ), PoolIntArray( 19, 42, 41, 20 ), PoolIntArray( 20, 41, 40, 21 ), PoolIntArray( 21, 40, 39, 22 ), PoolIntArray( 22, 39, 38, 23 ), PoolIntArray( 23, 38, 37, 24 ), PoolIntArray( 24, 37, 36, 25 ), PoolIntArray( 25, 36, 35, 26 ), PoolIntArray( 26, 35, 34, 27 ), PoolIntArray( 27, 34, 33, 28 ), PoolIntArray( 28, 33, 32, 29 ), PoolIntArray( 29, 32, 31, 30 ) ]
+bones = [ NodePath("Root"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), NodePath("Root/WingR_1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/WingR_1/WingR_2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/WingR_1/WingR_2/WingR_3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/WingR_1/WingR_2/WingR_3/WingR_4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Root/WingL_1"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), NodePath("Root/WingL_1/WingL_2"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ), NodePath("Root/WingL_1/WingL_2/WingL_3"), PoolRealArray( 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1 ), NodePath("Root/WingL_1/WingL_2/WingL_3/WingL_4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="Pivot/Visual"]
+
+[node name="Root" type="Bone2D" parent="Pivot/Visual/Skeleton2D"]
+rest = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="WingR_1" type="Bone2D" parent="Pivot/Visual/Skeleton2D/Root"]
+position = Vector2( 0, 5 )
+rest = Transform2D( 1, 0, 0, 1, 0, 5 )
+
+[node name="WingR_2" type="Bone2D" parent="Pivot/Visual/Skeleton2D/Root/WingR_1"]
+position = Vector2( 50, 0 )
+rest = Transform2D( 1, 0, 0, 1, 50, 0 )
+
+[node name="WingR_3" type="Bone2D" parent="Pivot/Visual/Skeleton2D/Root/WingR_1/WingR_2"]
+position = Vector2( 50, 0 )
+rest = Transform2D( 1, 0, 0, 1, 50, 0 )
+
+[node name="WingR_4" type="Bone2D" parent="Pivot/Visual/Skeleton2D/Root/WingR_1/WingR_2/WingR_3"]
+position = Vector2( 50, 0 )
+rest = Transform2D( 1, 0, 0, 1, 50, 0 )
+
+[node name="WingL_1" type="Bone2D" parent="Pivot/Visual/Skeleton2D/Root"]
+position = Vector2( 0, 5 )
+rest = Transform2D( 1, 0, 0, 1, 0, 5 )
+
+[node name="WingL_2" type="Bone2D" parent="Pivot/Visual/Skeleton2D/Root/WingL_1"]
+position = Vector2( -50, 0 )
+rest = Transform2D( 1, 0, 0, 1, -50, 0 )
+
+[node name="WingL_3" type="Bone2D" parent="Pivot/Visual/Skeleton2D/Root/WingL_1/WingL_2"]
+position = Vector2( -50, 0 )
+rest = Transform2D( 1, 0, 0, 1, -50, 0 )
+
+[node name="WingL_4" type="Bone2D" parent="Pivot/Visual/Skeleton2D/Root/WingL_1/WingL_2/WingL_3"]
+position = Vector2( -50, 0 )
+rest = Transform2D( 1, 0, 0, 1, -50, 0 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 0.4, 2.3 )
+texture = ExtResource( 4 )
+
+[node name="Input" type="Node" parent="."]
+script = ExtResource( 10 )
+
+[node name="States" type="Node" parent="."]
+
+[node name="Physics" type="Node" parent="States"]
+script = ExtResource( 6 )
+traction = 6.0
+
+[node name="Attack" type="Node" parent="States"]
+script = ExtResource( 13 )
+
+[node name="Throw" type="Node" parent="States"]
+script = ExtResource( 14 )
+_launch_speed = 5.0
+
+[node name="Rotate" type="Node" parent="States"]
+script = ExtResource( 12 )
+rotation_accel = 50.0
+
+[node name="Dash" type="Node" parent="States"]
+script = ExtResource( 11 )
+_dash_speed = 26.0
+
+[node name="Timer" type="Timer" parent="States/Dash"]
+wait_time = 0.001
+one_shot = true
+
+[node name="Move" type="Node" parent="States"]
+script = ExtResource( 8 )
+speed = 7.0
+acceleration = 100.0
+
+[connection signal="timeout" from="States/Dash/Timer" to="States/Dash" method="_on_Timer_timeout"]

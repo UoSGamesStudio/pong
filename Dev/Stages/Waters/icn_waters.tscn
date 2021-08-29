@@ -1,9 +1,0 @@
-[gd_scene load_steps=4 format=2]
-
-[ext_resource path="res://Stage/SSIcons/stage_select_icon.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Dev/Stages/icn_square.png" type="Texture" id=2]
-[ext_resource path="res://Dev/Sprites/waters.png" type="Texture" id=3]
-
-[node name="SSIcn_Waters" instance=ExtResource( 1 )]
-texture_normal = ExtResource( 2 )
-stage_preview_image = ExtResource( 3 )

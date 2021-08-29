@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://HUD/Pause/pause_menu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://HUD/MatchCountdown/match_countdown.tscn" type="PackedScene" id=2]
+[ext_resource path="res://HUD/WinScreen/win_screen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://HUD/ScoreDisplay/score_display.tscn" type="PackedScene" id=4]
+[ext_resource path="res://HUD/Clock/match_clock.tscn" type="PackedScene" id=5]
+
+[node name="HUD" type="Node" groups=[
+"HUD",
+]]
+
+[node name="InGameInfo" type="CanvasLayer" parent="."]
+
+[node name="MatchInfo" type="Control" parent="InGameInfo"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -594.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InGameInfo/MatchInfo"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreDisplay2" parent="InGameInfo/MatchInfo/HBoxContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 357.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+
+[node name="ClockWrapper" type="CenterContainer" parent="InGameInfo/MatchInfo/HBoxContainer"]
+margin_left = 361.0
+margin_right = 718.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+
+[node name="MatchClock" parent="InGameInfo/MatchInfo/HBoxContainer/ClockWrapper" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 112.0
+margin_right = 244.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="ScoreDisplay" parent="InGameInfo/MatchInfo/HBoxContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 722.0
+margin_right = 1080.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+
+[node name="MatchCoordinators" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="PauseMenu" parent="MatchCoordinators" instance=ExtResource( 1 )]
+visible = false
+
+[node name="MatchCountdown" parent="MatchCoordinators" instance=ExtResource( 2 )]
+visible = false
+
+[node name="WinScreen" parent="MatchCoordinators" instance=ExtResource( 3 )]
+visible = false

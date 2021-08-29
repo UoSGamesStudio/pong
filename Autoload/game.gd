@@ -39,16 +39,6 @@ func to_stage(scn_stage: PackedScene, scn_ball: PackedScene, scn_paddles: Array)
 		_main.add(p)
 	
 	MngMatch.setup_match(stage, paddles, ball)
-	var cvs_hud := CanvasLayer.new()
-	cvs_hud.layer = 1
-	cvs_hud.add_child(stage.scn_hud.instance())
-	
-	var cvs_pause := CanvasLayer.new()
-	cvs_pause.layer = 2
-	cvs_pause.add_child(_scn_pause_menu.instance())
-	
-	_main.add(cvs_hud)
-	_main.add(cvs_pause)
 
 func add_node(node: Node) -> void:
 	_main.add(node)

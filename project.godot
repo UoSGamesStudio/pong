@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "BallReaction",
 "language": "GDScript",
-"path": "res://Physics/ball_reaction.gd"
+"path": "res://Ball/ball_reaction.gd"
 }, {
 "base": "StaticBody2D",
 "class": "BallReactor",
@@ -52,7 +52,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "GoalScorer",
 "language": "GDScript",
-"path": "res://Scripts/goal_scorer.gd"
+"path": "res://Stage/Goals/goal_scorer.gd"
 }, {
 "base": "Reference",
 "class": "IButton",
@@ -72,12 +72,7 @@ _global_script_classes=[ {
 "base": "Control",
 "class": "MatchCountdown",
 "language": "GDScript",
-"path": "res://Autoload/MngMatch/match_countdown.gd"
-}, {
-"base": "MarginContainer",
-"class": "MatchHUD",
-"language": "GDScript",
-"path": "res://Stage/MatchHUD/match_hud.gd"
+"path": "res://HUD/MatchCountdown/match_countdown.gd"
 }, {
 "base": "Reference",
 "class": "Math",
@@ -87,7 +82,7 @@ _global_script_classes=[ {
 "base": "HBoxContainer",
 "class": "NumDisplay",
 "language": "GDScript",
-"path": "res://UI/NumDisplay/num_display.gd"
+"path": "res://Misc/NumDisplay/num_display.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Paddle",
@@ -118,6 +113,11 @@ _global_script_classes=[ {
 "class": "PaddleState",
 "language": "GDScript",
 "path": "res://Paddle/States/paddle_state.gd"
+}, {
+"base": "Control",
+"class": "ScoreDisplay",
+"language": "GDScript",
+"path": "res://HUD/ScoreDisplay/score_display.gd"
 }, {
 "base": "Node2D",
 "class": "Stage",
@@ -153,7 +153,6 @@ _global_script_class_icons={
 "InputNode": "",
 "Main": "",
 "MatchCountdown": "",
-"MatchHUD": "",
 "Math": "",
 "NumDisplay": "",
 "Paddle": "",
@@ -162,6 +161,7 @@ _global_script_class_icons={
 "PaddleHelper": "",
 "PaddleSpawn": "",
 "PaddleState": "",
+"ScoreDisplay": "",
 "Stage": "",
 "StageList": "",
 "StageSelectIcon": "",
@@ -178,9 +178,7 @@ config/icon="res://icon.png"
 
 Debug="*res://Autoload/Debug/Debug.tscn"
 Game="*res://Autoload/Game.tscn"
-SignalTower="*res://Autoload/signal_tower.gd"
 MngMatch="*res://Autoload/MngMatch/mng_match.tscn"
-ScnNav="*res://Autoload/navigator.gd"
 
 [display]
 
