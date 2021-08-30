@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Autoload/game.gd" type="Script" id=1]
-[ext_resource path="res://Menu/main_menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Menu/MainMenu/main_menu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Menu/StageSelection/stage_select.tscn" type="PackedScene" id=3]
 [ext_resource path="res://HUD/Pause/pause_menu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://HUD/base_hud.tscn" type="PackedScene" id=5]
 
 [node name="Game" type="Node"]
 script = ExtResource( 1 )
 _scn_main_menu = ExtResource( 2 )
 _scn_match_setup = ExtResource( 3 )
 _scn_pause_menu = ExtResource( 4 )
+_scn_default_hud = ExtResource( 5 )

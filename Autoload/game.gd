@@ -5,6 +5,9 @@ extends Node
 export(PackedScene) var _scn_main_menu: PackedScene
 export(PackedScene) var _scn_match_setup: PackedScene
 export(PackedScene) var _scn_pause_menu: PackedScene
+export(PackedScene) var _scn_default_hud: PackedScene
+
+const GRP_HUD := "HUD"
 
 var _main: Main = null
 
@@ -37,6 +40,9 @@ func to_stage(scn_stage: PackedScene, scn_ball: PackedScene, scn_paddles: Array)
 	_main.add(ball)
 	for p in paddles:
 		_main.add(p)
+	
+	if get_tree().get_nodes_in_group(GRP_HUD).size() < 0:
+		_main.add(_scn_default_hud.instance())
 	
 	MngMatch.setup_match(stage, paddles, ball)
 

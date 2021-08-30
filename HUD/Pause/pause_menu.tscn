@@ -10,15 +10,9 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+_pth_focus_start = NodePath("VBoxContainer/Label")
 
-[node name="VisualParent" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Screen" type="ColorRect" parent="VisualParent"]
+[node name="Screen" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.184314, 0.184314, 0.184314, 0.360784 )
@@ -26,11 +20,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="VisualParent"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 172.0
+margin_right = 1080.0
+margin_bottom = 186.0
 rect_scale = Vector2( 5, 5 )
-rect_pivot_offset = Vector2( 540, 360 )
+rect_pivot_offset = Vector2( 540, 0 )
+focus_neighbour_bottom = NodePath("../MarginContainer/Button")
+size_flags_vertical = 6
 text = "Pause"
 align = 1
 valign = 1
@@ -39,3 +43,37 @@ __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": "																																								8"
 }
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 362.0
+margin_right = 1080.0
+margin_bottom = 720.0
+size_flags_vertical = 3
+custom_constants/margin_right = 300
+custom_constants/margin_top = 100
+custom_constants/margin_left = 300
+custom_constants/margin_bottom = 100
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer"]
+margin_left = 300.0
+margin_top = 100.0
+margin_right = 780.0
+margin_bottom = 258.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/Button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 240, 79 )
+text = "Quit"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_down" from="VBoxContainer/MarginContainer/Button" to="." method="_on_quit_button_down"]

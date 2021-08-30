@@ -13,7 +13,6 @@ export(PackedScene) var _win_screen_scene: PackedScene
 
 onready var _match_timer: Timer = $MatchTimer
 
-var hud: Node
 var stage: Stage
 var ball: Ball
 
