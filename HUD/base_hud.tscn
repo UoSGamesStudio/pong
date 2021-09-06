@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://HUD/Pause/pause_menu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://HUD/MatchCountdown/match_countdown.tscn" type="PackedScene" id=2]
 [ext_resource path="res://HUD/WinScreen/win_screen.tscn" type="PackedScene" id=3]
 [ext_resource path="res://HUD/ScoreDisplay/score_display.tscn" type="PackedScene" id=4]
 [ext_resource path="res://HUD/Clock/match_clock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://HUD/MatchCountdown/match_timeout.tscn" type="PackedScene" id=6]
 
 [node name="HUD" type="Node" groups=[
 "HUD",
@@ -67,4 +68,7 @@ visible = false
 visible = false
 
 [node name="WinScreen" parent="MatchCoordinators" instance=ExtResource( 3 )]
+visible = false
+
+[node name="Timeout" parent="MatchCoordinators" instance=ExtResource( 6 )]
 visible = false

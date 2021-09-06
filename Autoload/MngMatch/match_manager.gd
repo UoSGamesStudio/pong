@@ -6,6 +6,8 @@ autoload Game
 signal match_setup_finished
 signal match_begun
 signal scores_updated
+
+signal match_timeout
 signal match_finished
 
 export var _default_match_time := 60
@@ -72,6 +74,18 @@ func begin_match() -> void:
 	_match_timer.start(_default_match_time)
 	in_match = true
 	emit_signal("match_begun")
+	
+func conclude_match() -> void:
+	winning_player = players.values()[0];
+	var largest_score: int = players.values()[0].score
+	for i in range(1, players.values().size()):
+		var score: int = players.values()[i].score
+		if score > largest_score:
+			winning_player = players[i]
+			largest_score = score
+	
+	emit_signal("match_finished")
+	
 
 func _on_goal_scored(goal_scorer: GoalScorer, goal_area: GoalArea) -> void:
 	for player in players.values():
@@ -92,13 +106,4 @@ func _reset_players() -> void:
 
 func _on_MatchTimer_timeout():
 	in_match = false
-	winning_player = players.values()[0];
-	var largest_score: int = players.values()[0].score
-	for i in range(1, players.values().size()):
-		var score: int = players.values()[i].score
-		if score > largest_score:
-			winning_player = players[i]
-			largest_score = score
-	
-	emit_signal("match_finished")
-	score_displays.clear()
+	emit_signal("match_timeout")
