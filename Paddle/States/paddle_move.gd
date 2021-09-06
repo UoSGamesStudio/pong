@@ -1,7 +1,7 @@
 extends PaddleState
 
-export(float, 0.0, 10.0) var speed := 5.0
-export(float, 0.0, 100.0) var acceleration := 2.0
+export(float, 0.0, 100.0) var speed := 5.0
+export(float, 0.0, 900.0) var acceleration := 900
 
 func execute(delta: float) -> void:
 	var c := _input.get_control()
