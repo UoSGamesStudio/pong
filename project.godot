@@ -127,7 +127,12 @@ _global_script_classes=[ {
 "base": "Control",
 "class": "StageList",
 "language": "GDScript",
-"path": "res://Menu/StageSelection/stage_list.gd"
+"path": "res://Menu/StageSelection/Tiles/stage_list.gd"
+}, {
+"base": "MarginContainer",
+"class": "StageListItem",
+"language": "GDScript",
+"path": "res://Menu/StageSelection/List/stage_list_item.gd"
 }, {
 "base": "TextureButton",
 "class": "StageSelectIcon",
@@ -164,6 +169,7 @@ _global_script_class_icons={
 "ScoreDisplay": "",
 "Stage": "",
 "StageList": "",
+"StageListItem": "",
 "StageSelectIcon": "",
 "TwoPlayerInput": ""
 }

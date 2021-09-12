@@ -1,0 +1,119 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Menu/MainMenu/Fonts/fnt_game_modes.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Stage/0Scenes/sli_stars.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Menu/StageSelection/List/stage_select_list.gd" type="Script" id=3]
+[ext_resource path="res://Menu/StageSelection/List/stage_list_item.tscn" type="PackedScene" id=4]
+
+[node name="StageSelection" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+_pth_stage_preview = NodePath("Cn1/CnAll/CnPrevName/StagePreview")
+_pth_stage_label = NodePath("Cn1/CnAll/CnPrevName/StageName")
+_pth_list_items_parent = NodePath("Cn1/CnAll/ScrList/CnListItems")
+
+[node name="Cn1" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CnAll" type="HBoxContainer" parent="Cn1"]
+margin_right = 1080.0
+margin_bottom = 720.0
+
+[node name="CnPrevName" type="VBoxContainer" parent="Cn1/CnAll"]
+margin_right = 691.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.8
+
+[node name="StagePreview" type="TextureRect" parent="Cn1/CnAll/CnPrevName"]
+margin_right = 691.0
+margin_bottom = 638.0
+size_flags_vertical = 3
+expand = true
+stretch_mode = 6
+
+[node name="StageName" type="Label" parent="Cn1/CnAll/CnPrevName"]
+margin_top = 642.0
+margin_right = 691.0
+margin_bottom = 720.0
+custom_fonts/font = ExtResource( 1 )
+text = "Stage Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrList" type="ScrollContainer" parent="Cn1/CnAll"]
+margin_left = 695.0
+margin_right = 1080.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CnListItems" type="VBoxContainer" parent="Cn1/CnAll/ScrList"]
+margin_right = 341.0
+margin_bottom = 560.0
+
+[node name="SLIStars" parent="Cn1/CnAll/ScrList/CnListItems" instance=ExtResource( 2 )]
+margin_right = 341.0
+margin_bottom = 52.0
+
+[node name="StageListItem" parent="Cn1/CnAll/ScrList/CnListItems" instance=ExtResource( 4 )]
+margin_top = 56.0
+margin_right = 341.0
+margin_bottom = 108.0
+
+[node name="StageListItem2" parent="Cn1/CnAll/ScrList/CnListItems" instance=ExtResource( 4 )]
+margin_top = 112.0
+margin_right = 341.0
+margin_bottom = 164.0
+
+[node name="StageListItem3" parent="Cn1/CnAll/ScrList/CnListItems" instance=ExtResource( 4 )]
+margin_top = 168.0
+margin_right = 341.0
+margin_bottom = 220.0
+
+[node name="StageListItem4" parent="Cn1/CnAll/ScrList/CnListItems" instance=ExtResource( 4 )]
+margin_top = 224.0
+margin_right = 341.0
+margin_bottom = 276.0
+
+[node name="StageListItem5" parent="Cn1/CnAll/ScrList/CnListItems" instance=ExtResource( 4 )]
+margin_top = 280.0
+margin_right = 341.0
+margin_bottom = 332.0
+
+[node name="StageListItem6" parent="Cn1/CnAll/ScrList/CnListItems" instance=ExtResource( 4 )]
+margin_top = 336.0
+margin_right = 341.0
+margin_bottom = 388.0
+
+[node name="StageListItem7" parent="Cn1/CnAll/ScrList/CnListItems" instance=ExtResource( 4 )]
+margin_top = 392.0
+margin_right = 341.0
+margin_bottom = 444.0
+
+[node name="StageListItem8" parent="Cn1/CnAll/ScrList/CnListItems" instance=ExtResource( 4 )]
+margin_top = 448.0
+margin_right = 341.0
+margin_bottom = 500.0
+
+[node name="StageListItem9" parent="Cn1/CnAll/ScrList/CnListItems" instance=ExtResource( 4 )]
+margin_top = 504.0
+margin_right = 341.0
+margin_bottom = 556.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Cn1/CnAll/ScrList/CnListItems"]
+margin_top = 560.0
+margin_right = 341.0
+margin_bottom = 560.0

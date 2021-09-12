@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Menu/StageSelection/List/stage_list_item.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Stage/0Scenes/Tests/Stars/stg_stars.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Stage/0Scenes/Tests/Stars/starry_skies.png" type="Texture" id=3]
+
+[node name="SLIStars" instance=ExtResource( 1 )]
+stage_name = "Stars"
+scn_stage = ExtResource( 2 )
+stage_preview = ExtResource( 3 )

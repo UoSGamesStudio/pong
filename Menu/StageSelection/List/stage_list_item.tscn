@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Menu/MainMenu/Fonts/fnt_settings.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Menu/StageSelection/List/stage_list_item.gd" type="Script" id=2]
+
+[node name="StageListItem" type="MarginContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+focus_mode = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 391.0
+margin_bottom = 52.0
+focus_mode = 2
+custom_fonts/font = ExtResource( 1 )
+text = "Stage List Item"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 391.0
+margin_bottom = 52.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]

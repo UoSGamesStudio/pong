@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Autoload/game.gd" type="Script" id=1]
 [ext_resource path="res://Menu/MainMenu/main_menu.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Menu/StageSelection/stage_select.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Menu/StageSelection/Tiles/stage_select_tiles.tscn" type="PackedScene" id=3]
 [ext_resource path="res://HUD/Pause/pause_menu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://HUD/base_hud.tscn" type="PackedScene" id=5]
 
