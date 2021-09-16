@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Autoload/game.gd" type="Script" id=1]
 [ext_resource path="res://Menu/MainMenu/main_menu.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Menu/StageSelection/Tiles/stage_select_tiles.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Menu/StageSelection/List/stage_select_list.tscn" type="PackedScene" id=3]
 [ext_resource path="res://HUD/Pause/pause_menu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://HUD/base_hud.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Ball/ball.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Paddle/0Scenes/tst_paddle.tscn" type="PackedScene" id=7]
 
 [node name="Game" type="Node"]
 script = ExtResource( 1 )
@@ -12,3 +14,5 @@ _scn_main_menu = ExtResource( 2 )
 _scn_match_setup = ExtResource( 3 )
 _scn_pause_menu = ExtResource( 4 )
 _scn_default_hud = ExtResource( 5 )
+scn_next_ball = ExtResource( 6 )
+scn_next_paddles = [ ExtResource( 7 ), ExtResource( 7 ) ]

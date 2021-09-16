@@ -8,6 +8,9 @@ var _stage_preview: TextureRect
 var _stage_label: Label
 
 var _list_items := []
+var _current: StageListItem
+
+var _confirm_input_buffer_flag := true
 
 func _ready() -> void:
 	_stage_preview = get_node(_pth_stage_preview)
@@ -28,6 +31,16 @@ func _ready() -> void:
 	
 	_list_items[0].grab_focus()
 
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed('ui_accept'):
+		if _confirm_input_buffer_flag:
+			_confirm_input_buffer_flag = false
+			return
+		Game.scn_next_stage = _current.scn_stage
+		Game.to_stage()
+		
+
 func _on_stage_list_item_highlighted(stage_list_item: StageListItem) -> void:
+	_current = stage_list_item
 	_stage_label.text = stage_list_item.stage_name
 	_stage_preview.texture = stage_list_item.stage_preview

@@ -9,6 +9,10 @@ export(PackedScene) var _scn_default_hud: PackedScene
 
 const GRP_HUD := "HUD"
 
+var scn_next_stage: PackedScene = null
+export var scn_next_ball: PackedScene = null
+export(Array, PackedScene) var scn_next_paddles := []
+
 var _main: Main = null
 
 func set_main_node(node: Node) -> void:
@@ -28,12 +32,12 @@ func to_match_setup() -> void:
 #	var setup := _scn_match_setup.instance()
 	_main.add(_scn_match_setup.instance())
 
-func to_stage(scn_stage: PackedScene, scn_ball: PackedScene, scn_paddles: Array) -> void:
+func to_stage() -> void:
 	_main.clear()
-	var stage := scn_stage.instance()
-	var ball := scn_ball.instance()
+	var stage := scn_next_stage.instance()
+	var ball := scn_next_ball.instance()
 	var paddles := []
-	for p in scn_paddles:
+	for p in scn_next_paddles:
 		paddles.append(p.instance())
 	
 	_main.add(stage)

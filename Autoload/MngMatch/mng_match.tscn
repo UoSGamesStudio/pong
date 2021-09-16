@@ -1,11 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Autoload/MngMatch/match_manager.gd" type="Script" id=1]
-[ext_resource path="res://HUD/WinScreen/win_screen.tscn" type="PackedScene" id=3]
 
 [node name="MngMatch" type="Node"]
 script = ExtResource( 1 )
-_win_screen_scene = ExtResource( 3 )
 
 [node name="MatchTimer" type="Timer" parent="."]
 one_shot = true

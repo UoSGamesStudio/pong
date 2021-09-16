@@ -11,7 +11,6 @@ signal match_timeout
 signal match_finished
 
 export var _default_match_time := 60
-export(PackedScene) var _win_screen_scene: PackedScene
 
 onready var _match_timer: Timer = $MatchTimer
 

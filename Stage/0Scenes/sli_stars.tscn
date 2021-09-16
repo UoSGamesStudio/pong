@@ -8,3 +8,9 @@
 stage_name = "Stars"
 scn_stage = ExtResource( 2 )
 stage_preview = ExtResource( 3 )
+
+[node name="Label" parent="." index="0"]
+margin_right = 341.0
+
+[node name="TextureRect" parent="." index="1"]
+margin_right = 341.0
